@@ -28,7 +28,7 @@ brew install mactex
 
 3. Configure vscode user settings.
 
-  - Press Command+Shift+P, and open “Preferences: Open User Settings(JSON)” and append these lines:
+  - Press Command+Shift+P, and open "Preferences: Open User Settings(JSON)" and append these lines:
 
 ```json
 "latex-workshop.latex.tools": [
