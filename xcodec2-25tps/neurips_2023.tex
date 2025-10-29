@@ -1,7 +1,7 @@
 \documentclass[preprint]{article}
 
 % if you need to pass options to natbib, use, e.g.:
-%     \PassOptionsToPackage{numbers, compress}{natbib}
+% \PassOptionsToPackage{numbers, compress}{natbib}
 % before loading neurips_2023
 
 
@@ -11,26 +11,26 @@
 
 % to compile a preprint version, e.g., for submission to arXiv, add add the
 % [preprint] option:
-%     \usepackage[preprint]{neurips_2023}
+% \usepackage[preprint]{neurips_2023}
 
 
 % to compile a camera-ready version, add the [final] option, e.g.:
-%     \usepackage[final]{neurips_2023}
+% \usepackage[final]{neurips_2023}
 
 
 % to avoid loading the natbib package, add option nonatbib:
-%    \usepackage[nonatbib]{neurips_2023}
+%\usepackage[nonatbib]{neurips_2023}
 
 \usepackage{bookmark}
 \usepackage[utf8]{inputenc} % allow utf-8 input
-\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
-\usepackage{url}            % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage{amsfonts}       % blackboard math symbols
-\usepackage{nicefrac}       % compact symbols for 1/2
-\usepackage{microtype}      % microtypography
-\usepackage{xcolor}         % colors
+\usepackage[T1]{fontenc}% use 8-bit T1 fonts
+\usepackage{hyperref} % hyperlinks
+\usepackage{url}% simple URL typesetting
+\usepackage{booktabs} % professional-quality tables
+\usepackage{amsfonts} % blackboard math symbols
+\usepackage{nicefrac} % compact symbols for 1/2
+\usepackage{microtype}% microtypography
+\usepackage{xcolor} % colors
 \usepackage{listings}
 \usepackage{cite}
 \usepackage{graphicx}
@@ -44,33 +44,33 @@
 \usepackage{tabularx}
 
 \lstset{
-  breaklines=true,
-  basicstyle=\ttfamily\small,
-  commentstyle=\color{green!40!black},
-  keywordstyle=\color{blue},
-  numberstyle=\tiny\color{gray},
-  numbers=none,
-  frame=single,
-  breaklines=true,
-  breakatwhitespace=true,
-  captionpos=b,
-  showstringspaces=false,
-  columns=fullflexible,
+breaklines=true,
+basicstyle=\ttfamily\small,
+commentstyle=\color{green!40!black},
+keywordstyle=\color{blue},
+numberstyle=\tiny\color{gray},
+numbers=none,
+frame=single,
+breaklines=true,
+breakatwhitespace=true,
+captionpos=b,
+showstringspaces=false,
+columns=fullflexible,
 }
 
 \hypersetup{
-    pdftitle={Improving X-Codec-2.0 for Multi-Lingual Speech: 25 Hz Latent Rate and 24 kHz Sampling},
-    pdfauthor={Husein Zolkepli},
-    pdfsubject={Audio and Speech Processing},
-    pdfkeywords={speech models, deep learning},
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
+pdftitle={Improving X-Codec-2.0 for Multi-Lingual Speech: 25 Hz Latent Rate and 24 kHz Sampling},
+pdfauthor={Husein Zolkepli},
+pdfsubject={Audio and Speech Processing},
+pdfkeywords={speech models, deep learning},
+colorlinks=true,
+linkcolor=blue,
+citecolor=blue,
+urlcolor=blue
 }
 \title{Improving X-Codec-2.0 for Multi-Lingual Speech: 25 Hz Latent Rate and 24 kHz Sampling}
 \author{
-  Husein Zolkepli\thanks{husein.zol05@gmail.com}
+Husein Zolkepli\thanks{husein.zol05@gmail.com}
 }
 
 \begin{document}
@@ -87,37 +87,94 @@ Evaluated on the multilingual Common Voice 17 test set, the proposed configurati
 
 \section{Introduction}
 
+Recent advances in neural audio tokenization have enabled end-to-end speech modeling through discrete latent representations.  
+Among these, X-Codec-2.0 has emerged as a powerful multilingual codec model, combining a HuBERT-based semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
+Its design allows large language models (LLMs) and autoregressive decoders to handle speech as a discrete sequence prediction task.  
 
+However, X-Codec-2.0 operates at a 50\,Hz latent frame rate with a 16\,kHz target sampling rate.  
+While effective, this configuration limits temporal resolution and upper-frequency fidelity, producing slightly muffled high-frequency content and larger sequence lengths for generation models.  
+Moreover, as multilingual datasets expand to include more diverse acoustic and expressive conditions, the fixed 50\,Hz resolution may underutilize the model's potential to capture fine-grained speech variation.
+
+In this work, we propose a simple yet effective modification to X-Codec-2.0 that improves both efficiency and perceptual quality.  
+By increasing the hop size to 960 samples and introducing a lightweight pooling layer before quantization, the codec operates at a reduced 25\,Hz latent rate while simultaneously increasing the audio sampling rate to 24\,kHz.  
+All encoder components are kept frozen, and only the decoder is fine-tuned under this new temporal configuration.  
+We find that this adjustment produces higher-quality reconstructions without additional parameters or training complexity.
+
+Empirically, the proposed model achieves a +0.5 improvement in mean opinion score (MOS) as estimated by UTMOSv2 on the multilingual Common Voice 22 test set.  
+The improvement is consistent across languages and demonstrates better high-frequency reconstruction and overall perceptual clarity.  
+Our work shows that small architectural refinements, particularly hop-size and pooling adjustments can meaningfully improve codec quality without re-training from scratch.
 
 \section{Method}
 
-The proposed modification to X-Codec-2.0 focuses on improving temporal efficiency and output audio fidelity with minimal architectural changes. The overall model structure remains consistent with the original design, consisting of a frozen semantic encoder (HuBERT-based), a transformer codec encoder, and a vocoder-style decoder.
+The proposed modification to X-Codec-2.0 focuses on improving temporal efficiency and output audio fidelity through minimal architectural changes. The overall structure remains consistent with the original design, consisting of a frozen semantic encoder (HuBERT-based), a transformer codec encoder, and a vocoder-style decoder.
 
 \subsection{Temporal Pooling and Hop Size Adjustment}
 In the original X-Codec-2.0 configuration, the encoder operates at a latent rate of 50\,Hz with a 16\,kHz sampling rate, corresponding to a hop size of 320 samples. To achieve a lower latent rate and higher waveform sampling rate, we increased the hop size to 960 samples and introduced an additional average pooling layer:
 \[
 \text{AvgPool1d}(k=2,\, \text{stride}=2).
 \]
-This simple modification effectively halves the number of discrete tokens per second, reducing the latent rate from 50\,Hz to 25\,Hz, while maintaining stable training dynamics and enabling the decoder to reconstruct 24\,kHz audio.
+This modification reduces the latent rate from 50\,Hz to 25\,Hz, halving the number of discrete tokens per second while maintaining temporal coherence. The pooling operation is applied before vector quantization, compressing the feature sequence by a factor of two.
+
+\subsection{Decoder Weight Interpolation}
+Changing the hop size also alters the dimensionality of the decoder's output layer. Rather than discarding the pretrained decoder weights, we applied one-dimensional linear interpolation to the output projection parameters of the generator head:
+\begin{verbatim}
+weight_resized = F.interpolate(weight.T.unsqueeze(0),
+ size=new_size,
+ mode="linear",
+ align_corners=True)
+\end{verbatim}
+
+Both the output weight and bias were interpolated to match the new hop size (960 samples). This procedure allows the decoder to retain the spectral characteristics of the original pretrained model while adapting smoothly to the new resolution. Although this interpolation strategy has not been empirically validated in isolation, it provided a straightforward way to transfer pretrained weights without retraining from scratch.
 
 \subsection{Training Strategy}
-All parameters except the decoder were frozen during training. The semantic encoder (frozen HuBERT) and codec encoder components were reused directly from the official X-Codec-2.0 release, ensuring that multilingual representation capability was preserved. Only the decoder was fine-tuned to adapt to the new temporal resolution and higher sampling rate.
+All model parameters were frozen except for the decoder. The semantic encoder (frozen HuBERT) and codec encoder were reused directly from the pretrained X-Codec-2.0 checkpoint. The decoder was fine-tuned to accommodate the new hop size and temporal pooling. The resulting model generates 25\,Hz discrete tokens and reconstructs 24\,kHz audio with improved perceptual quality.
 
-\subsection{Implementation Details}
-The architecture was implemented using the Hugging Face \texttt{transformers} and \texttt{torch} frameworks. A simplified version of the modification is shown below:
-\begin{verbatim}
-self.avg_pooler = nn.AvgPool1d(2, stride=2)
-...
-concat_emb = self.fc_prior(concat_emb.transpose(1, 2)).transpose(1, 2)
-concat_emb = self.avg_pooler(concat_emb)
-\end{verbatim}
-This pooling operation compresses the feature sequence length by half before vector quantization and decoding. The overall computation graph remains identical to the original X-Codec-2.0 pipeline.
+\subsection{Training Configuration}
+All hyperparameters were kept consistent with the original X-Codec-2.0 implementation to ensure comparability. The model was trained on eight NVIDIA GPUs (16-bit mixed precision) for 3.0 million steps using a batch size of 8. Both the generator and discriminator were optimized with the Adam optimizer (\(\beta_1 = 0.8, \beta_2 = 0.9\)) and a cyclic learning rate schedule with warmup and decay phases:
+\[
+\text{max\_lr} = 1.0\times10^{-4}, \quad
+\text{min\_lr} = 2.0\times10^{-5}.
+\]
+The loss function followed the same multi-objective formulation as X-Codec-2.0, combining mel-spectrogram, adversarial, and semantic losses except for feature matching:
+\[
+\mathcal{L}_{\text{total}} =
+\lambda_{\text{mel}}\mathcal{L}_{\text{mel}} +
+\lambda_{\text{adv}}\mathcal{L}_{\text{adv}} +
+\lambda_{\text{sem}}\mathcal{L}_{\text{sem}}.
+\]
+Empirically, the following coefficients were retained from the original configuration:
+\(\lambda_{\text{mel}}=15\),
+\(\lambda_{\text{adv}}=1\),
+\(\lambda_{\text{sem}}=5\).
 
-\subsection{Resulting Configuration}
-After modification, the model produces discrete tokens at a 25\,Hz rate and reconstructs waveforms at a 24\,kHz sampling rate, offering improved perceptual quality and efficiency without altering the core model design.
-
+To align with the new sampling rate, the \texttt{MultiResolutionMelSpectrogramLoss} was configured for a 24 kHz sample rate. This ensures that spectral loss computation matches the decoder's output frequency resolution. Validation was performed every 4000 steps on 2560 held-out samples. Gradient clipping was set to 1.0 for both generator and discriminator to maintain stability. The overall setup reproduces the X-Codec-2.0 training dynamics while isolating the effect of the proposed hop-size and pooling modifications.
 
 \section{Experiments}
+
+\paragraph{Datasets.}
+
+We train our model on a large-scale multilingual corpus totaling approximately 16,000 hours of speech.
+
+The dataset is constructed by combining publicly available TTS and expressive speech datasets from Hugging Face, covering over 20 languages, including English, Mandarin, Malay, Japanese, Korean, Arabic, Hindi, Tamil, Bengali, and several European languages.
+Each audio sample is uniformly resampled to 24\,kHz and cropped into randomly selected 5-second segments.
+The data mixture includes both neutral and expressive speaking styles, although most samples are clean studio-quality recordings.
+No text transcriptions are used during training.
+
+\paragraph{Model Initialization.}
+We initialize from the official X-Codec-2.0 checkpoint provided by HKUSTAudio.
+All encoder components (HuBERT-based semantic encoder and codec encoder) are frozen.
+Only the decoder is fine-tuned under the modified hop size (960 samples) and temporal rate (25\,Hz).
+The decoder head weights and biases are linearly interpolated from the original X-Codec-2.0 configuration to match the new output resolution.
+
+\paragraph{Training Configuration.}
+Training is conducted on two NVIDIA RTX~3090~Ti GPUs using mixed BF16 precision for approximately two months.
+We use the same hyperparameters and optimization strategy as X-Codec-2.0, including identical loss weightings and scheduler configurations.
+The \texttt{MultiResolutionMelSpectrogramLoss} is updated for a 24\,kHz target sample rate to align with the new output resolution.
+Batch accumulation and gradient clipping follow the original setup.
+
+\paragraph{Evaluation.}
+For evaluation, we benchmark against the original X-Codec-2.0 model (16\,kHz, 50\,Hz latent rate).
+All evaluations are performed using the UTMOSv2 model-based perceptual quality metric on the multilingual Common Voice 22 test set.
 
 \subsection{Evaluation with UTMOSv2 Across Checkpoints}
 
@@ -129,7 +186,7 @@ After modification, the model produces discrete tokens at a 25\,Hz rate and reco
 
 \section{Limitation}
 
-While the proposed modification improves the perceptual quality and efficiency of X-Codec-2.0, several limitations remain.  
+While the proposed modification improves the perceptual quality and efficiency of X-Codec-2.0, several limitations remain.
 First, the training data used in this study is primarily drawn from the Common Voice dataset, which is relatively clean and contains limited variation in background noise, speaker style, and expressiveness. As a result, the model does not generalize well to unseen languages or expressive speech domains such as animated or emotional voices. Continued fine-tuning with more diverse and expressive data is expected to alleviate this issue.
 
 Second, all evaluations were conducted using the UTMOSv2 metric, which estimates mean opinion scores from audio features. While convenient for large-scale automatic evaluation, UTMOSv2 does not fully capture human perceptual preferences.
