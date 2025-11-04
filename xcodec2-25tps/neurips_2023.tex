@@ -117,20 +117,27 @@ This modification reduces the latent rate from 50\,Hz to 25\,Hz, halving the num
 
 \subsection{Decoder Weight Interpolation}
 Changing the hop size also alters the dimensionality of the decoder's output layer. Rather than discarding the pretrained decoder weights, we applied one-dimensional linear interpolation to the output projection parameters of the generator head:
-\begin{verbatim}
-weight_resized = F.interpolate(weight.T.unsqueeze(0),
- size=new_size,
- mode="linear",
- align_corners=True)
-\end{verbatim}
 
-Both the output weight and bias were interpolated to match the new hop size (960 samples). This procedure allows the decoder to retain the spectral characteristics of the original pretrained model while adapting smoothly to the new resolution. Although this interpolation strategy has not been empirically validated in isolation, it provided a straightforward way to transfer pretrained weights without retraining from scratch.
+\begin{equation}
+w'_i = (1 - \alpha_i)\, w_{\lfloor x_i \rfloor} + \alpha_i\, w_{\lceil x_i \rceil}, 
+\quad 
+x_i = \frac{L - 1}{L' - 1} \, i,
+\quad 
+\alpha_i = x_i - \lfloor x_i \rfloor,
+\quad 
+i = 0, \ldots, L' - 1,
+\end{equation}
+
+Both the output weight and bias were interpolated to match the new hop size (960 samples). 
+This procedure allows the decoder to retain the spectral characteristics of the original pretrained model while adapting smoothly to the new resolution. 
+Although this interpolation strategy has not been empirically validated in isolation, it provided a straightforward way to transfer pretrained weights without retraining from scratch. 
+We did not conduct ablation experiments with randomly initialized parameters, so it remains unclear whether interpolation contributes to faster convergence or improved stability during fine-tuning.
 
 \subsection{Training Strategy}
 All model parameters were frozen except for the decoder. The semantic encoder (frozen HuBERT) and codec encoder were reused directly from the pretrained X-Codec-2.0 checkpoint. The decoder was fine-tuned to accommodate the new hop size and temporal pooling. The resulting model generates 25\,Hz discrete tokens and reconstructs 24\,kHz audio with improved perceptual quality.
 
 \subsection{Training Configuration}
-All hyperparameters were kept consistent with the original X-Codec-2.0 implementation to ensure comparability. The model was trained on eight NVIDIA GPUs (16-bit mixed precision) for 3.0 million steps using a batch size of 8. Both the generator and discriminator were optimized with the Adam optimizer (\(\beta_1 = 0.8, \beta_2 = 0.9\)) and a cyclic learning rate schedule with warmup and decay phases:
+All hyperparameters were kept consistent with the original X-Codec-2.0 implementation to ensure comparability. The model was trained on two NVIDIA RTX 3090 Ti GPUs using BF16 mixed precision for 3 million steps using a batch size of 20 for each device. Both the generator and discriminator were optimized with the Adam optimizer (\(\beta_1 = 0.8, \beta_2 = 0.9\)) and a cyclic learning rate schedule with warmup and decay phases:
 \[
 \text{max\_lr} = 1.0\times10^{-4}, \quad
 \text{min\_lr} = 2.0\times10^{-5}.
@@ -193,10 +200,22 @@ Second, all evaluations were conducted using the UTMOSv2 metric, which estimates
 
 Finally, no downstream applications have been explored. With a vocabulary size of 65,536 and a 25 Hz token rate, each discrete token represents a larger amount of information. This increases the effective prediction difficulty for autoregressive models that use these tokens, which may lead to higher perplexity.
 
+\section{Future Work}
+
+While this work focuses on a simple temporal modification introducing additional pooling and increasing the encoder hop size to reduce the latent rate from 50 Hz to 25 Hz in X-Codec-2.0 several directions remain to deepen the understanding and extend the capability of discrete audio representation models.
+
+First, the semantic encoder in X-Codec-2.0, derived from a frozen HuBERT model, is known to capture cross-lingual acoustic and phonetic information effectively. However, its interaction with temporal resolution remains underexplored. Future work could systematically vary the latent frame rate (e.g., from 10 Hz to 100 Hz) and evaluate its impact on perceptual quality, token predictability, and downstream generative modeling. Such experiments would help characterize the encoder's temporal sensitivity and identify the optimal trade-off between information density and reconstruction quality. In particular, understanding how much semantic content is preserved when the latent rate decreases could inform the design of more compact and efficient tokenizers for both speech and general audio.
+
+Second, reducing the latent rate introduces a natural compression bottleneck, potentially limiting the decoder's ability to recover fine-grained acoustic details. This raises an important design question regarding the balance between encoder compression strength and decoder capacity. Increasing the decoder depth, widening its receptive field, or incorporating attention-based upsampling mechanisms may help compensate for lost temporal detail when operating at lower frame rates. A systematic analysis of this trade-off to evaluate how decoder complexity scales with latent rate could provide new insights into optimal model scaling laws for discrete audio codecs.
+
+Third, extending the experiments to larger and more diverse datasets, including noisy or expressive speech (e.g., emotional, conversational, or singing voice data), would reveal the model's robustness and generalization ability. The current results, based on Common Voice 16, primarily reflect performance on clean and monotonic speech. Future work could investigate whether adjusting the latent frame rate interacts differently with noisy or highly variable input conditions.
+
+Finally, downstream evaluation remains an open area. One promising direction is to assess how the discrete tokens perform in text-to-speech (TTS) or speech-language modeling pipelines, especially under large vocabulary sizes (e.g., 65,536 tokens) and shorter temporal sequences. Analyzing token-level perplexity, attention behavior, and reconstruction fidelity in LLM-based TTS finetuning could help determine whether lower frame rates hinder or help generative quality. Integrating such codecs with speech foundation models may also reveal new ways to unify speech and text modeling under a single discrete token interface.
+
 \section{Acknowledgement}
 
 Special thanks to my wife for her patience and for not getting too upset about the electricity bill
-caused by running two RTX 3090 Ti GPUs around the clock for two months.
+caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
 
 \bibliography{neurips_2023}{}
 \bibliographystyle{unsrt}
