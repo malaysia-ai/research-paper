@@ -64,7 +64,7 @@ columns=fullflexible,
 
 \hypersetup{
 pdftitle={Improving X-Codec-2.0 for Multi-Lingual Speech: 25 Hz Latent Rate and 24 kHz Sampling},
-pdfauthor={Malaysia-AI Volunteer},
+pdfauthor={Malaysia-AI},
 pdfsubject={Audio and Speech Processing},
 pdfkeywords={speech models, deep learning},
 colorlinks=true,
@@ -74,7 +74,7 @@ urlcolor=blue
 }
 \title{Improving X-Codec-2.0 for Multi-Lingual Speech: 25 Hz Latent Rate and 24 kHz Sampling}
 \author{
-Malaysia-AI Volunteer
+Malaysia-AI
 }
 
 \begin{document}
@@ -92,11 +92,14 @@ Evaluated on the multilingual Common Voice 22 test set, the proposed configurati
 \section{Introduction}
 
 Recent advances in neural audio tokenization have enabled end-to-end speech modeling through discrete latent representations.  
-Among these, X-Codec-2.0 \cite{ye2024codecdoesmatterexploring} has emerged as a powerful multilingual codec model, combining a HuBERT-based \cite{hsu2021hubertselfsupervisedspeechrepresentation} semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
+Among these, X-Codec-2.0~\cite{ye2024codecdoesmatterexploring} has emerged as a powerful multilingual codec model, combining a HuBERT-based~\cite{hsu2021hubertselfsupervisedspeechrepresentation} semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
 Its design allows large language models (LLMs) and autoregressive decoders to handle speech as a discrete sequence prediction task.  
 
+A key appeal of X-Codec-2.0 lies in its simplicity: it employs a single codebook with a latent frame rate of 50\,Hz, making its discrete token stream compact, stable, and easy to integrate into multimodal LLM pipelines.  
+This property makes it particularly attractive for tasks such as text-to-speech (TTS) generation, speech-to-text modeling, or unified speech-language pretraining especially for streaming or low-latency scenarios where token-level autoregressive decoding is desirable.  
+
 However, X-Codec-2.0 operates at a 50\,Hz latent frame rate with a 16\,kHz target sampling rate.  
-While effective, this configuration limits temporal resolution and upper-frequency fidelity, producing slightly muffled high-frequency content and larger sequence lengths for generation models.  
+While effective, this configuration limits temporal resolution and upper-frequency fidelity, producing slightly muffled high-frequency content and longer token sequences for generation models.  
 Moreover, as multilingual datasets expand to include more diverse acoustic and expressive conditions, the fixed 50\,Hz resolution may underutilize the model's potential to capture fine-grained speech variation.
 
 In this work, we propose a simple yet effective modification to X-Codec-2.0 that improves both efficiency and perceptual quality.  
@@ -104,9 +107,9 @@ By increasing the hop size to 960 samples and introducing a lightweight pooling 
 All encoder components are kept frozen, and only the decoder is fine-tuned under this new temporal configuration.  
 We find that this adjustment produces higher-quality reconstructions without additional parameters or training complexity.
 
-Empirically, the proposed model achieves a +0.5 improvement in mean opinion score (MOS) as estimated by UTMOSv2 \cite{baba2024t05voicemoschallenge2024} on the multilingual Common Voice \cite{ardila2020commonvoicemassivelymultilingualspeech} 22 test set.  
+Empirically, the proposed model achieves a +0.5 improvement in mean opinion score (MOS) as estimated by UTMOSv2~\cite{baba2024t05voicemoschallenge2024} on the multilingual Common Voice~\cite{ardila2020commonvoicemassivelymultilingualspeech}~22 test set.  
 The improvement is consistent across languages and demonstrates better high-frequency reconstruction and overall perceptual clarity.  
-Our work shows that small architectural refinements, particularly hop-size and pooling adjustments can meaningfully improve codec quality without re-training from scratch.
+Our work shows that small architectural refinements by changing hop-size and pooling adjustments can meaningfully improve codec quality while preserving the simplicity and modularity that make X-Codec-2.0 suitable for LLM-based speech modeling.
 
 \section{Method}
 \label{sec:method}
@@ -141,11 +144,12 @@ All model parameters were frozen except for the decoder. The semantic encoder (f
 
 \section{Experiments}
 
-\subsection{Datasets}
-We train our model on a large-scale multilingual corpus totaling approximately 16,000 hours of speech.
-The dataset combines publicly available TTS and expressive speech corpora from Hugging Face, covering over 20 languages such as English, Mandarin, Malay, Japanese, Korean, Arabic, Hindi, Tamil, Bengali, and several European languages.
-Each audio sample is uniformly resampled to 24\,kHz and cropped into randomly selected 5-second segments.
-No text transcriptions are used during training. The full list of datasets is publicly available at \href{https://huggingface.co/datasets/malaysia-ai/Multilingual-TTS}{malaysia-ai/Multilingual-TTS}.
+\subsection{Training Datasets}
+We train our model on a large-scale multilingual corpus totaling approximately 16,000 hours of speech. 
+The dataset combines publicly available TTS and expressive speech corpora from Hugging Face, covering over 100 languages including English, Mandarin, Malay, Japanese, Korean, Arabic, Hindi, Tamil, Bengali, and numerous European and low-resource languages. 
+Each audio sample is uniformly resampled to 24\,kHz and cropped into randomly selected 5 second segments. 
+No text transcriptions are used during training. 
+The full list of datasets is publicly available at \href{https://huggingface.co/datasets/malaysia-ai/Multilingual-TTS}{malaysia-ai/Multilingual-TTS}.
 
 \subsection{Model Initialization}
 We initialize from the official X-Codec-2.0 checkpoint provided by HKUSTAudio.
@@ -173,12 +177,17 @@ Empirically, the following coefficients were retained from the original configur
 To align with the new sampling rate, the \texttt{MultiResolutionMelSpectrogramLoss} was configured for a 24\,kHz sample rate. This ensures that spectral loss computation matches the decoder's output frequency resolution. Validation was performed every 4000 steps on 2560 held-out samples. Gradient clipping was set to 1.0 for both generator and discriminator to maintain stability. The overall setup reproduces the X-Codec-2.0 training dynamics while isolating the effect of the proposed hop-size and pooling modifications.
 
 \section{Evaluation}
-We evaluate perceptual quality using the UTMOSv2 model-based speech quality estimator, a neural predictor trained to approximate human mean opinion scores (MOS) across multiple languages and acoustic conditions. 
-UTMOSv2 extends the original UTMOS by incorporating multilingual training data and a more robust calibration pipeline, making it suitable for evaluating speech codecs and vocoders without subjective listening tests.
+We evaluate perceptual quality using the UTMOSv2, a neural predictor trained to approximate human mean opinion scores (MOS) from speech spectrograms. 
+Although UTMOSv2 is trained primarily on English speech, it has demonstrated strong correlation with subjective evaluations across diverse acoustic conditions and can be reasonably applied to multilingual speech quality assessment. 
+During evaluation, we follow the inference procedure described in the original UTMOSv2 paper: for each audio sample, predictions are generated five times by randomly selecting different frame offsets of the input waveform, and the final score is obtained by averaging these predictions (i.e., test-time augmentation). 
+This process improves robustness against temporal variability and ensures stable MOS estimation across datasets.
 
 \subsection{Evaluation Dataset}
-We use the multilingual Common Voice~22 test set, which covers approximately 100 languages. 
-For each language, all available utterances are sorted by duration, and the 500 longest clips are selected, resulting in a total of 50,000 evaluation samples. We uploaded the test set samples at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k}{malaysia-ai/xcodec2-25TPS-24k}.
+We use the multilingual Common Voice~22 test set, which covers 130 languages. 
+All audio samples are preprocessed using the WebRTC Voice Activity Detection (VAD) to remove non-speech regions, including both leading, trailing, and intermediate silences, with a minimum silence duration threshold of 0.2 seconds. 
+For each language, utterances shorter than 20 seconds after trimming are retained, then sorted in descending order of duration. 
+The 500 longest samples per language are selected for evaluation, resulting in a total of 53{,}927 audio clips. 
+The complete evaluation set is publicly available at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k/tree/main/test-set}{malaysia-ai/xcodec2-25TPS-24k/test-set}.
 
 \subsection{Evaluation with UTMOSv2 Across Checkpoints}
 To monitor model convergence, we compute UTMOSv2 scores periodically across training checkpoints. 
@@ -241,7 +250,7 @@ We further benchmark our model against several recent neural audio codecs: SNAC~
 
 \end{longtable}
 
-We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 100-language evaluation are provided in Appendix~\ref{appendix:full-eval}.
+We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 130 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
 
 Overall, our model demonstrates consistent improvement over the X-Codec-2.0 baseline, achieving higher predicted MOS scores across most languages, particularly for high-frequency and expressive speech conditions.
 
@@ -258,13 +267,13 @@ Finally, no downstream applications have been explored. With a vocabulary size o
 
 While this work focuses on a simple temporal modification introducing additional pooling and increasing the encoder hop size to reduce the latent rate from 50 Hz to 25 Hz in X-Codec-2.0 several directions remain to deepen the understanding and extend the capability of discrete audio representation models.
 
-First, the semantic encoder in X-Codec-2.0, derived from a frozen HuBERT model, is known to capture cross-lingual acoustic and phonetic information effectively. However, its interaction with temporal resolution remains underexplored. Future work could systematically vary the latent frame rate (e.g., from 10 Hz to 100 Hz) and evaluate its impact on perceptual quality, token predictability, and downstream generative modeling. Such experiments would help characterize the encoder's temporal sensitivity and identify the optimal trade-off between information density and reconstruction quality. In particular, understanding how much semantic content is preserved when the latent rate decreases could inform the design of more compact and efficient tokenizers for both speech and general audio.
+First, the semantic encoder in X-Codec-2.0, derived from a frozen HuBERT model, is known to capture cross-lingual acoustic and phonetic information effectively. However, its interaction with temporal resolution remains underexplored. Future work could systematically vary the latent frame rate (e.g., from 10 Hz to 100 Hz) and evaluate its impact on perceptual quality, token predictability, and downstream generative modeling. Such experiments would help characterize the decoder's temporal sensitivity and identify the optimal trade-off between information density and reconstruction quality. In particular, understanding how much semantic content is preserved when the latent rate decreases could inform the design of more compact and efficient tokenizers for both speech and general audio.
 
 Second, reducing the latent rate introduces a natural compression bottleneck, potentially limiting the decoder's ability to recover fine-grained acoustic details. This raises an important design question regarding the balance between encoder compression strength and decoder capacity. Increasing the decoder depth, widening its receptive field, or incorporating attention-based upsampling mechanisms may help compensate for lost temporal detail when operating at lower frame rates. A systematic analysis of this trade-off to evaluate how decoder complexity scales with latent rate could provide new insights into optimal model scaling laws for discrete audio codecs.
 
 Third, extending the experiments to larger and more diverse datasets, including noisy or expressive speech (e.g., emotional, conversational, or singing voice data), would reveal the model's robustness and generalization ability. The current results, based on primarily reflect performance on clean and monotonic speech, future work could investigate whether adjusting the latent frame rate interacts differently with noisy or highly variable input conditions.
 
-Finally, downstream evaluation remains an open area. One promising direction is to assess how the discrete tokens perform in text-to-speech (TTS) or speech-language modeling pipelines, especially under large vocabulary sizes (e.g., 65,536 tokens) and shorter temporal sequences. Analyzing token-level perplexity, attention behavior, and reconstruction fidelity in LLM-based TTS finetuning could help determine whether lower frame rates hinder or help generative quality. Integrating such codecs with speech foundation models may also reveal new ways to unify speech and text modeling under a single discrete token interface.
+Finally, downstream evaluation remains an open area. One promising direction is to assess how the discrete tokens perform in text-to-speech (TTS) or speech-language modeling pipelines, especially under large vocabulary sizes (e.g., 65,536 tokens) and shorter temporal sequences. Analyzing token-level perplexity, attention behavior, and reconstruction fidelity in LLM-based TTS finetuning could help determine whether lower frame rates hinder or help generative quality.
 
 \section{Acknowledgement}
 
@@ -278,7 +287,7 @@ caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
 \section{Full Multilingual Evaluation}
 \label{appendix:full-eval}
 
-In this section, we provide the full UTMOSv2 evaluation results across 100 languages.
+In this section, we provide the full UTMOSv2 evaluation results across 130 languages.
 
 \begin{table}[H]
 \centering
