@@ -85,7 +85,7 @@ Malaysia-AI
 
 X-Codec-2.0 has shown strong performance in neural audio compression and multilingual speech modeling, operating at a 50 Hz latent rate and a 16 kHz sampling rate using frozen HuBERT features. While effective, this configuration limits efficiency and audio fidelity.
 In this work, we explore a simple effective modification by introducing additional pooling and increasing the decoder hop size. This reduces the latent rate from 50 Hz to 25 Hz and simultaneously raises the output sampling rate from 16 kHz to 24 kHz, improving temporal efficiency and perceptual quality without altering the core architecture.
-Evaluated on the multilingual Common Voice 22 test set, the proposed configuration achieves a 0.5 MOS improvement over the original X-Codec-2.0 baseline. The source code, checkpoints and generation comparison released at \href{https://xcodec2-25tps.github.io}{xcodec2-25tps.github.io}.
+Evaluated on the multilingual Common Voice 17 test set, the proposed configuration achieves a 0.5 MOS improvement over the original X-Codec-2.0 baseline. The source code, checkpoints and generation comparison released at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k}{huggingface.co/malaysia-ai/xcodec2-25TPS-24k}.
 
 \end{abstract}
 
@@ -107,7 +107,7 @@ By increasing the hop size to 960 samples and introducing a lightweight pooling 
 All encoder components are kept frozen, and only the decoder is fine-tuned under this new temporal configuration.  
 We find that this adjustment produces higher-quality reconstructions without additional parameters or training complexity.
 
-Empirically, the proposed model achieves a +0.5 improvement in mean opinion score (MOS) as estimated by UTMOSv2~\cite{baba2024t05voicemoschallenge2024} on the multilingual Common Voice~\cite{ardila2020commonvoicemassivelymultilingualspeech}~22 test set.  
+Empirically, the proposed model achieves a +0.5 improvement in mean opinion score (MOS) as estimated by UTMOSv2~\cite{baba2024t05voicemoschallenge2024} on the multilingual Common Voice~\cite{ardila2020commonvoicemassivelymultilingualspeech}~17 test set.  
 The improvement is consistent across languages and demonstrates better high-frequency reconstruction and overall perceptual clarity.  
 Our work shows that small architectural refinements by changing hop-size and pooling adjustments can meaningfully improve codec quality while preserving the simplicity and modularity that make X-Codec-2.0 suitable for LLM-based speech modeling.
 
@@ -149,7 +149,7 @@ We train our model on a large-scale multilingual corpus totaling approximately 1
 The dataset combines publicly available TTS and expressive speech corpora from Hugging Face, covering over 100 languages, including English, Mandarin, Malay, Japanese, Korean, Arabic (with various regional dialects), Hindi, Tamil, Bengali, and a wide range of Indic, European, and other low-resource languages.
 Each audio sample is uniformly resampled to 24\,kHz and cropped into randomly selected 5-second segments. 
 No text transcriptions are used during training. 
-The full list of datasets is publicly available at \href{https://huggingface.co/datasets/malaysia-ai/Multilingual-TTS}{malaysia-ai/Multilingual-TTS}.
+The full list of datasets is publicly available at \href{https://huggingface.co/datasets/malaysia-ai/Multilingual-TTS/blob/2421a13e07226d96ac7009d5327d96a84672768c/README.md}{malaysia-ai/Multilingual-TTS/2421a13e07226d96ac7009d5327d96a84672768c}.
 
 \subsection{Model Initialization}
 We initialize from the official X-Codec-2.0 checkpoint provided by HKUSTAudio.
@@ -183,22 +183,17 @@ During evaluation, we follow the inference procedure described in the original U
 This process improves robustness against temporal variability and ensures stable MOS estimation across datasets.
 
 \subsection{Evaluation Dataset}
-We use the multilingual Common Voice~22 test set, which covers 130 languages. 
+We use the multilingual Common Voice~17 test set, which covers 116 languages. 
 All audio samples are preprocessed using the WebRTC Voice Activity Detection (VAD) to remove non-speech regions, including both leading, trailing, and intermediate silences, with a minimum silence duration threshold of 0.2 seconds. 
 For each language, utterances shorter than 20 seconds after trimming are retained, then sorted in descending order of duration. 
-The 500 longest samples per language are selected for evaluation, resulting in a total of 53{,}927 audio clips. 
+The 500 longest samples per language are selected for evaluation, resulting in a total of 48{,}489 audio clips. 
 The complete evaluation set is publicly available at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k/tree/main/test-set}{malaysia-ai/xcodec2-25TPS-24k/test-set}.
-
-\subsection{Evaluation with UTMOSv2 Across Checkpoints}
-To monitor model convergence, we compute UTMOSv2 scores periodically across training checkpoints. 
-Scores are averaged over the full evaluation subset and plotted as a function of training steps. 
-This analysis reveals how perceptual quality evolves during fine-tuning, indicating the point of diminishing returns and the stability of the interpolation-based adaptation process.
 
 \subsection{Comparison with Other Models}
 We further benchmark our model against several recent neural audio codecs: SNAC~\cite{siuzdak2024snac}, Encodec~\cite{défossez2022highfidelityneuralaudio}, DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, BigCodec~\cite{xin2024bigcodecpushinglimitslowbitrate}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, WavTokenizer~\cite{ji2025wavtokenizerefficientacousticdiscrete}, BiCodec~\cite{wang2025sparkttsefficientllmbasedtexttospeech}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Neucodec~\cite{julian2025finitescalarquantizationenables} and X-Codec-2.0 baseline.
 
 \begin{longtable}{llcccc}
-\caption{UTMOSv2 evaluation across eight representative languages from Common Voice~22.}
+\caption{UTMOSv2 evaluation across eight representative languages from Common Voice~17.}
 \label{tab:utmos-comparison} \\
 \toprule
 \textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2} \\
@@ -250,7 +245,7 @@ We further benchmark our model against several recent neural audio codecs: SNAC~
 
 \end{longtable}
 
-We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 130 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
+We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 116 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
 
 Overall, our model demonstrates consistent improvement over the X-Codec-2.0 baseline, achieving higher predicted MOS scores across most languages, particularly for high-frequency and expressive speech conditions.
 
