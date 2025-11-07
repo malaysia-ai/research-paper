@@ -95,7 +95,7 @@ Recent advances in neural audio tokenization have enabled end-to-end speech mode
 Among these, X-Codec-2.0~\cite{ye2024codecdoesmatterexploring} has emerged as a powerful multilingual codec model, combining a HuBERT-based~\cite{hsu2021hubertselfsupervisedspeechrepresentation} semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
 Its design allows large language models (LLMs) and autoregressive decoders to handle speech as a discrete sequence prediction task.  
 
-A key appeal of X-Codec-2.0 lies in its simplicity: it employs a single codebook with a latent frame rate of 50\,Hz, making its discrete token stream compact, stable, and easy to integrate into multimodal LLM pipelines.  
+A key appeal of X-Codec-2.0 lies in its simplicity, it employs a single codebook with a latent frame rate of 50\,Hz, making its discrete token stream compact, and easy to integrate into multimodal LLM pipelines.  
 This property makes it particularly attractive for tasks such as text-to-speech (TTS) generation, speech-to-text modeling, or unified speech-language pretraining especially for streaming or low-latency scenarios where token-level autoregressive decoding is desirable.  
 
 However, X-Codec-2.0 operates at a 50\,Hz latent frame rate with a 16\,kHz target sampling rate.  
