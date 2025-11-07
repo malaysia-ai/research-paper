@@ -102,7 +102,7 @@ However, X-Codec-2.0 operates at a 50\,Hz latent frame rate with a 16\,kHz targe
 While effective, this configuration limits temporal resolution and upper-frequency fidelity, producing slightly muffled high-frequency content and longer token sequences for generation models.  
 Moreover, as multilingual datasets expand to include more diverse acoustic and expressive conditions, the fixed 50\,Hz resolution may underutilize the model's potential to capture fine-grained speech variation.
 
-In this work, we propose a simple yet effective modification to X-Codec-2.0 that improves both efficiency and perceptual quality.  
+In this work, we propose a simple modification to X-Codec-2.0 that improves both efficiency and perceptual quality.  
 By increasing the hop size to 960 samples and introducing a lightweight pooling layer before quantization, the codec operates at a reduced 25\,Hz latent rate while simultaneously increasing the audio sampling rate to 24\,kHz.  
 All encoder components are kept frozen, and only the decoder is fine-tuned under this new temporal configuration.  
 We find that this adjustment produces higher-quality reconstructions without additional parameters or training complexity.
@@ -178,9 +178,7 @@ To align with the new sampling rate, the \texttt{MultiResolutionMelSpectrogramLo
 
 \section{Evaluation}
 We evaluate perceptual quality using the UTMOSv2, a neural predictor trained to approximate human mean opinion scores (MOS) from speech spectrograms. 
-Although UTMOSv2 is trained primarily on English speech, it has demonstrated strong correlation with subjective evaluations across diverse acoustic conditions and can be reasonably applied to multilingual speech quality assessment. 
-During evaluation, we follow the inference procedure described in the original UTMOSv2 paper: for each audio sample, predictions are generated five times by randomly selecting different frame offsets of the input waveform, and the final score is obtained by averaging these predictions (i.e., test-time augmentation). 
-This process improves robustness against temporal variability and ensures stable MOS estimation across datasets.
+Although UTMOSv2 is trained primarily on English speech, it has demonstrated strong correlation with subjective evaluations across diverse acoustic conditions and can be reasonably applied to multilingual speech quality assessment.
 
 \subsection{Evaluation Dataset}
 We use the multilingual Common Voice~17 test set, which covers 116 languages. 
@@ -190,7 +188,7 @@ The 500 longest samples per language are selected for evaluation, resulting in a
 The complete evaluation set is publicly available at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k/tree/main/test-set}{malaysia-ai/xcodec2-25TPS-24k/test-set}.
 
 \subsection{Comparison with Other Models}
-We further benchmark our model against several recent neural audio codecs: SNAC~\cite{siuzdak2024snac}, Encodec~\cite{défossez2022highfidelityneuralaudio}, DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, BigCodec~\cite{xin2024bigcodecpushinglimitslowbitrate}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, WavTokenizer~\cite{ji2025wavtokenizerefficientacousticdiscrete}, BiCodec~\cite{wang2025sparkttsefficientllmbasedtexttospeech}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Neucodec~\cite{julian2025finitescalarquantizationenables} and X-Codec-2.0 baseline.
+We further benchmark our model against several recent neural audio codecs: SNAC~\cite{siuzdak2024snac}, Encodec~\cite{défossez2022highfidelityneuralaudio}, DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Neucodec~\cite{julian2025finitescalarquantizationenables} and X-Codec-2.0 baseline.
 
 \begin{longtable}{llcccc}
 \caption{UTMOSv2 evaluation across eight representative languages from Common Voice~17.}
