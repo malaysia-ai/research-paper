@@ -95,8 +95,9 @@ Recent advances in neural audio tokenization have enabled end-to-end speech mode
 Among these, X-Codec-2.0~\cite{ye2024codecdoesmatterexploring} has emerged as a powerful multilingual codec model, combining a HuBERT-based~\cite{hsu2021hubertselfsupervisedspeechrepresentation} semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
 Its design allows large language models (LLMs) and autoregressive decoders to handle speech as a discrete sequence prediction task.  
 
-A key appeal of X-Codec-2.0 lies in its simplicity, it employs a single codebook with a latent frame rate of 50\,Hz, making its discrete token stream compact, and easy to integrate into multimodal LLM pipelines.  
-This property makes it particularly attractive for tasks such as text-to-speech (TTS) generation, speech-to-text modeling, or unified speech-language pretraining especially for streaming or low-latency scenarios where token-level autoregressive decoding is desirable.  
+A key appeal of X-Codec-2.0 lies in its simplicity, it employs a single codebook with a latent frame rate of 50,Hz, making its discrete token stream compact and easy to integrate into multimodal LLM pipelines.
+This property makes it particularly attractive for tasks such as text-to-speech (TTS) generation, speech-to-text modeling, or unified speech-language pretraining, especially in streaming or low-latency scenarios where token-level autoregressive decoding is desirable.
+Furthermore, the use of fused linear cross-entropy in modern LLM implementations can substantially reduce activation memory during training, enabling efficient extension of large language models to handle audio tokens without prohibitive computational overhead.
 
 However, X-Codec-2.0 operates at a 50\,Hz latent frame rate with a 16\,kHz target sampling rate.  
 While effective, this configuration limits temporal resolution and upper-frequency fidelity, producing slightly muffled high-frequency content and longer token sequences for generation models.  
@@ -188,18 +189,20 @@ The 500 longest samples per language are selected for evaluation, resulting in a
 The complete evaluation set is publicly available at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k/tree/main/test-set}{malaysia-ai/xcodec2-25TPS-24k/test-set}.
 
 \subsection{Comparison with Other Models}
-We further benchmark our model against several recent neural audio codecs: SNAC~\cite{siuzdak2024snac}, Encodec~\cite{défossez2022highfidelityneuralaudio}, DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Neucodec~\cite{julian2025finitescalarquantizationenables} and X-Codec-2.0 baseline.
+We further benchmark our model against several recent neural audio codecs: DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Encodec~\cite{défossez2022highfidelityneuralaudio}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, Neucodec~\cite{julian2025finitescalarquantizationenables}, SNAC~\cite{siuzdak2024snac}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, and X-Codec-2.0 baseline.
+
+\pagebreak
 
 \begin{longtable}{llcccc}
 \caption{UTMOSv2 evaluation across eight representative languages from Common Voice~17.}
 \label{tab:utmos-comparison} \\
 \toprule
-\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2} \\
+\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2 ($\uparrow$)} \\
 \midrule
 \endfirsthead
 
 \toprule
-\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2} \\
+\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2 ($\uparrow$)} \\
 \midrule
 \endhead
 
@@ -210,49 +213,32 @@ We further benchmark our model against several recent neural audio codecs: SNAC~
 \endlastfoot
 
 \multirow{8}{*}{English}
- & Encodec & 1024 & 1 & 50 & -- \\
- & DAC & 1024 & 1 & 50 & -- \\
- & Mimi & 2048 & 1 & 25 & -- \\
- & BigCodec & 8192 & 1 & 25 & -- \\
- & SpeechTokenizer & 65536 & 1 & 25 & -- \\
- & WavTokenizer & 65536 & 1 & 25 & -- \\
+ & DAC & 1024 & 9 & 86 & -- \\
+ & DistilCodec & 32768 & 1 & 93 & -- \\
+ & Encodec & 1024 & 2 & 75 & -- \\
+ & Mimi & 2048 & 32 & 12.5 & -- \\
+ & Neucodec & 65536 & 1 & 50 & -- \\
+ & SNAC & 4096 & 3 & 27 & 2.048 \\
+ & SpeechTokenizer & 1024 & 8 & 50 & -- \\
+ & UniCodec & 16384 & 1 & 75 & 2.014 \\
  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & -- \\
- & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{--} \\
-\midrule
-
-\multirow{8}{*}{German}
- & Encodec & 1024 & 1 & 50 & -- \\
- & DAC & 1024 & 1 & 50 & -- \\
- & Mimi & 2048 & 1 & 25 & -- \\
- & BigCodec & 8192 & 1 & 25 & -- \\
- & SpeechTokenizer & 65536 & 1 & 25 & -- \\
- & WavTokenizer & 65536 & 1 & 25 & -- \\
- & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & -- \\
- & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{--} \\
-\midrule
-
-\multirow{8}{*}{Spanish}
- & Encodec & 1024 & 1 & 50 & -- \\
- & DAC & 1024 & 1 & 50 & -- \\
- & Mimi & 2048 & 1 & 25 & -- \\
- & BigCodec & 8192 & 1 & 25 & -- \\
- & SpeechTokenizer & 65536 & 1 & 25 & -- \\
- & WavTokenizer & 65536 & 1 & 25 & -- \\
- & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & -- \\
- & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{--} \\
+ & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{2.086} \\
 
 \end{longtable}
 
 We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 116 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
 
-Overall, our model demonstrates consistent improvement over the X-Codec-2.0 baseline, achieving higher predicted MOS scores across most languages, particularly for high-frequency and expressive speech conditions.
+Overall, our model demonstrates consistent improvement over the X-Codec-2.0 baseline, achieving higher predicted MOS scores based on UTMOSv2 across most languages.
 
 \section{Limitation}
 
 While the proposed modification improves the perceptual quality and efficiency of X-Codec-2.0, several limitations remain.
 First, the training data used in this study is primarily drawn from the Common Voice dataset, which is relatively clean and contains limited variation in background noise, speaker style, and expressiveness. As a result, the model does not generalize well to unseen languages or expressive speech domains such as animated or emotional voices. Continued fine-tuning with more diverse and expressive data is expected to alleviate this issue.
 
-Second, all evaluations were conducted using the UTMOSv2 metric, which estimates mean opinion scores from audio features. While convenient for large-scale automatic evaluation, UTMOSv2 does not fully capture human perceptual preferences.
+Second, all evaluations were conducted using the UTMOSv2 metric, which predicts mean opinion scores (MOS) directly from audio representations.
+While this approach enables scalable and reproducible evaluation without the need for human raters, UTMOSv2 may not fully reflect subjective perceptual preferences.
+Moreover, as the model was primarily trained on English speech, its cross-lingual generalization remains uncertain.
+Although prior work has shown that UTMOSv2 maintains strong correlation with human judgments under diverse acoustic conditions, further validation on multilingual data is necessary to ensure fair and reliable assessment across languages.
 
 Finally, no downstream applications have been explored. With a vocabulary size of 65,536 and a 25 Hz token rate, each discrete token represents a larger amount of information. This increases the effective prediction difficulty for autoregressive models that use these tokens, which may lead to higher perplexity.
 
@@ -280,24 +266,39 @@ caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
 \section{Full Multilingual Evaluation}
 \label{appendix:full-eval}
 
-In this section, we provide the full UTMOSv2 evaluation results across 130 languages.
+In this section, we provide the full UTMOSv2 evaluation results across 116 languages.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{lccccc}
+\begin{longtable}{llcccc}
+\caption{UTMOSv2 evaluation across 116 languages from Common Voice~17.}
+\label{tab:utmos-comparison-all} \\
 \toprule
-\textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{Language} & \textbf{UTMOSv2} \\
+\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2 ($\uparrow$)} \\
 \midrule
-Encodec & 1024 & 1 & 50 & English & 4.12 \\
-DAC & 1024 & 1 & 50 & German & 3.95 \\
-Mimi & 2048 & 1 & 25 & Spanish & 4.20 \\
-BigCodec & 8192 & 1 & 25 & French & 4.35 \\
-SpeechTokenizer & 65536 & 1 & 25 & Italian & 4.28 \\
-WavTokenizer & 65536 & 1 & 25 & Polish & 4.22 \\
-X-Codec-2.0 (baseline) & 65536 & 1 & 50 & Dutch & 4.05 \\
-\textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1  & \textbf{25} & \textbf{Portuguese} & \textbf{4.56} \\
+\endfirsthead
+
+\toprule
+\textbf{Language} & \textbf{Model} & \textbf{Codebook Size} & \textbf{Nq} & \textbf{Token Rate (Hz)} & \textbf{UTMOSv2 ($\uparrow$)} \\
+\midrule
+\endhead
+
+\midrule
+\endfoot
+
 \bottomrule
-\end{tabular}
-\end{table}
+\endlastfoot
+
+\multirow{8}{*}{English}
+ & DAC & 1024 & 9 & 86 & -- \\
+ & DistilCodec & 32768 & 1 & 93 & -- \\
+ & Encodec & 1024 & 2 & 75 & -- \\
+ & Mimi & 2048 & 32 & 12.5 & -- \\
+ & Neucodec & 65536 & 1 & 50 & -- \\
+ & SNAC & 4096 & 3 & 27 & 2.048 \\
+ & SpeechTokenizer & 1024 & 8 & 50 & -- \\
+ & UniCodec & 16384 & 1 & 75 & 2.014 \\
+ & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & -- \\
+ & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{2.086} \\
+
+\end{longtable}
 
 \end{document}
