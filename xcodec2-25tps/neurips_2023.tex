@@ -1,17 +1,11 @@
 \documentclass[preprint]{article}
 
 % if you need to pass options to natbib, use, e.g.:
-% \PassOptionsToPackage{numbers, compress}{natbib}
+\PassOptionsToPackage{numbers, compress}{natbib}
 % before loading neurips_2023
 
-
-% ready for submission
-\usepackage{neurips_2023}
-
-
-% to compile a preprint version, e.g., for submission to arXiv, add add the
-% [preprint] option:
-% \usepackage[preprint]{neurips_2023}
+\usepackage[preprint]{neurips_2023}
+\usepackage[authoryear]{natbib}
 
 
 % to compile a camera-ready version, add the [final] option, e.g.:
@@ -36,8 +30,12 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\renewcommand{\theequation}{}
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+\renewenvironment{equation}{\begin{equation*}}{\end{equation*}}
 \usepackage{algpseudocode}
-\usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{caption}
 \usepackage{pdflscape}
@@ -92,7 +90,7 @@ Evaluated on the multilingual Common Voice 17 test set, the proposed configurati
 \section{Introduction}
 
 Recent advances in neural audio tokenization have enabled end-to-end speech modeling through discrete latent representations.  
-Among these, X-Codec-2.0~\cite{ye2024codecdoesmatterexploring} has emerged as a powerful multilingual codec model, combining a HuBERT-based~\cite{hsu2021hubertselfsupervisedspeechrepresentation} semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
+Among these, X-Codec-2.0 (\citet{ye2024codecdoesmatterexploring}) has emerged as a powerful multilingual codec model, combining a HuBERT-based (\citet{hsu2021hubertselfsupervisedspeechrepresentation}) semantic encoder and a transformer-based codec architecture to produce high-quality, language-agnostic audio tokens.  
 Its design allows large language models (LLMs) and autoregressive decoders to handle speech as a discrete sequence prediction task.  
 
 A key appeal of X-Codec-2.0 lies in its simplicity, it employs a single codebook with a latent frame rate of 50 Hz, making its discrete token stream compact and easy to integrate into multimodal LLM pipelines.
@@ -108,7 +106,7 @@ By increasing the hop size to 960 samples and introducing a lightweight pooling 
 All encoder components are kept frozen, and only the decoder is fine-tuned under this new temporal configuration.  
 We find that this adjustment produces higher-quality reconstructions without additional parameters or training complexity.
 
-Empirically, the proposed model achieves a +0.29 improvement in mean opinion score (MOS) as estimated by UTMOSv2~\cite{baba2024t05voicemoschallenge2024} on the multilingual Common Voice~\cite{ardila2020commonvoicemassivelymultilingualspeech}~17 test set.  
+Empirically, the proposed model achieves a +0.29 improvement in mean opinion score (MOS) as estimated by UTMOSv2 (\citet{baba2024t05voicemoschallenge2024}) on the multilingual Common Voice (\citet{ardila2020commonvoicemassivelymultilingualspeech}) 17 test set.  
 The improvement is consistent across languages and demonstrates better high-frequency reconstruction and overall perceptual clarity.  
 Our work shows that small architectural refinements by changing hop-size and pooling adjustments can meaningfully improve codec quality while preserving the simplicity and modularity that make X-Codec-2.0 suitable for LLM-based speech modeling.
 
@@ -133,7 +131,7 @@ x_i = \frac{L - 1}{L' - 1} \, i,
 \quad 
 \alpha_i = x_i - \lfloor x_i \rfloor,
 \quad 
-i = 0, \ldots, L' - 1,
+i = 0, \ldots, L' - 1
 \end{equation}
 Both the output weight and bias were interpolated to match the new hop size (960 samples). 
 This procedure allows the decoder to retain the spectral characteristics of the original pretrained model while adapting smoothly to the new resolution. 
@@ -161,14 +159,14 @@ Decoder head weights and biases are linearly interpolated from the pretrained mo
 All hyperparameters were kept consistent with the original X-Codec-2.0 implementation to ensure comparability. The model was trained on two NVIDIA RTX 3090 Ti GPUs using BF16 mixed precision for 3 million steps with a batch size of 20 per device. Both the generator and discriminator were optimized using the Adam optimizer (\(\beta_1 = 0.8, \beta_2 = 0.9\)) and a cyclic learning rate schedule with warmup and decay:
 \[
 \text{max\_lr} = 1.0\times10^{-4}, \quad
-\text{min\_lr} = 2.0\times10^{-5}.
+\text{min\_lr} = 2.0\times10^{-5}
 \]
 The loss function followed the same multi-objective formulation as X-Codec-2.0, combining mel-spectrogram, adversarial, and semantic losses except for feature matching:
 \[
 \mathcal{L}_{\text{total}} =
 \lambda_{\text{mel}}\mathcal{L}_{\text{mel}} +
 \lambda_{\text{adv}}\mathcal{L}_{\text{adv}} +
-\lambda_{\text{sem}}\mathcal{L}_{\text{sem}}.
+\lambda_{\text{sem}}\mathcal{L}_{\text{sem}}
 \]
 Empirically, the following coefficients were retained from the original configuration:
 \(\lambda_{\text{mel}}=15\),
@@ -189,7 +187,7 @@ The 500 longest samples per language are selected for evaluation, resulting in a
 The complete evaluation set is publicly available at \href{https://huggingface.co/malaysia-ai/xcodec2-25TPS-24k/tree/main/test-set}{malaysia-ai/xcodec2-25TPS-24k/test-set}.
 
 \subsection{Comparison with Other Models}
-We further benchmark our model against several recent neural audio codecs: DAC~\cite{kumar2023highfidelityaudiocompressionimproved}, DistilCodec~\cite{wang2025unittsendtoendttsdecoupling}, Encodec~\cite{défossez2022highfidelityneuralaudio}, Mimi~\cite{défossez2024moshispeechtextfoundationmodel}, Neucodec~\cite{julian2025finitescalarquantizationenables}, SNAC~\cite{siuzdak2024snac}, SpeechTokenizer~\cite{zhang2024speechtokenizerunifiedspeechtokenizer}, UniCodec~\cite{jiang2025unicodecunifiedaudiocodec}, and X-Codec-2.0 baseline.
+We further benchmark our model against several recent neural audio codecs: DAC (\citet{kumar2023highfidelityaudiocompressionimproved}), DistilCodec (\citet{wang2025unittsendtoendttsdecoupling}), Encodec (\citet{défossez2022highfidelityneuralaudio}), Mimi (\citet{défossez2024moshispeechtextfoundationmodel}), Neucodec (\citet{julian2025finitescalarquantizationenables}), SNAC (\citet{siuzdak2024snac}), SpeechTokenizer (\citet{zhang2024speechtokenizerunifiedspeechtokenizer}), UniCodec (\citet{jiang2025unicodecunifiedaudiocodec}), and X-Codec-2.0 baseline.
 
 \pagebreak
 
@@ -330,8 +328,8 @@ Finally, downstream evaluation remains an open area. One promising direction is 
 Special thanks to my wife for her patience and for not getting too upset about the electricity bill
 caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
 
-\bibliography{neurips_2023}{}
-\bibliographystyle{unsrt}
+\bibliographystyle{plainnat}
+\bibliography{neurips_2023}
 
 \newpage
 

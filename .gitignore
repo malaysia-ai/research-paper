@@ -6,3 +6,5 @@
 *.out
 *.bbl
 *.blg
+*.zip
+*.DS_Store
