@@ -212,21 +212,92 @@ We further benchmark our model against several recent neural audio codecs: DAC~\
 \bottomrule
 \endlastfoot
 
-\multirow{8}{*}{English}
- & DAC & 1024 & 9 & 86 & 2.037 \\
- & DistilCodec & 32768 & 1 & 93 & 2.13 \\
- & Encodec & 1024 & 2 & 75 & 1.464 \\
- & Mimi & 2048 & 32 & 12.5 & 2.032 \\
- & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.361} \\
- & SNAC & 4096 & 3 & 27 & 2.048 \\
- & SpeechTokenizer & 1024 & 8 & 50 & 2.065 \\
- & UniCodec & 16384 & 1 & 75 & 2.014 \\
- & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.086 \\
- & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.244 \\
-
+\multirow{8}{*}{NL}
+  & DAC & 1024 & 9 & 86 & 2.315 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.416 \\
+  & Encodec & 1024 & 2 & 75 & 1.388 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.336 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.55} \\
+  & SNAC & 4096 & 3 & 27 & 2.193 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.203 \\
+  & UniCodec & 16384 & 1 & 75 & 2.256 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.457 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.168 \\
+\midrule
+\multirow{8}{*}{EN}
+  & DAC & 1024 & 9 & 86 & 2.037 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.13 \\
+  & Encodec & 1024 & 2 & 75 & 1.464 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.032 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.361} \\
+  & SNAC & 4096 & 3 & 27 & 2.048 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.065 \\
+  & UniCodec & 16384 & 1 & 75 & 2.014 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.245 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.086 \\
+\midrule
+\multirow{8}{*}{FR}
+  & DAC & 1024 & 9 & 86 & 2.085 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.141 \\
+  & Encodec & 1024 & 2 & 75 & 1.386 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.081 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.354} \\
+  & SNAC & 4096 & 3 & 27 & 2.007 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.003 \\
+  & UniCodec & 16384 & 1 & 75 & 2.026 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.217 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.062 \\
+\midrule
+\multirow{8}{*}{IT}
+  & DAC & 1024 & 9 & 86 & 2.2 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.261 \\
+  & Encodec & 1024 & 2 & 75 & 1.414 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.152 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.494} \\
+  & SNAC & 4096 & 3 & 27 & 2.098 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.062 \\
+  & UniCodec & 16384 & 1 & 75 & 2.149 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.304 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.108 \\
+\midrule
+\multirow{8}{*}{PL}
+  & DAC & 1024 & 9 & 86 & 2.258 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.312 \\
+  & Encodec & 1024 & 2 & 75 & 1.424 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.296 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.493} \\
+  & SNAC & 4096 & 3 & 27 & 2.144 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.159 \\
+  & UniCodec & 16384 & 1 & 75 & 2.174 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.392 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.122 \\
+\pagebreak
+\multirow{8}{*}{PT}
+  & DAC & 1024 & 9 & 86 & 2.231 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.308 \\
+  & Encodec & 1024 & 2 & 75 & 1.405 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.273 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.491} \\
+  & SNAC & 4096 & 3 & 27 & 2.187 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.202 \\
+  & UniCodec & 16384 & 1 & 75 & 2.221 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.386 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.136 \\
+\midrule
+\multirow{8}{*}{ES}
+  & DAC & 1024 & 9 & 86 & 2.204 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.194 \\
+  & Encodec & 1024 & 2 & 75 & 1.369 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.201 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.504} \\
+  & SNAC & 4096 & 3 & 27 & 2.117 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.096 \\
+  & UniCodec & 16384 & 1 & 75 & 2.111 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.314 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.139 \\
 \end{longtable}
 
-We report UTMOSv2 results on eight representative languages, Spanish, German, English, French, Italian, Polish, Dutch, and Portuguese which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 116 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
+We report UTMOSv2 results on eight representative languages, Dutch, English, French, German, Italian, Polish, Portuguese and Spanish, which collectively cover a range of phonetic and prosodic diversity among high-resource European languages. Results for the complete 116 languages evaluation are provided in Appendix~\ref{appendix:full-eval}.
 
 Overall, our model demonstrates consistent improvement over the X-Codec-2.0 baseline, achieving higher predicted MOS scores based on UTMOSv2 across most languages.
 
@@ -262,6 +333,8 @@ caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
 \bibliography{neurips_2023}{}
 \bibliographystyle{unsrt}
 
+\newpage
+
 \appendix
 \section{Full Multilingual Evaluation}
 \label{appendix:full-eval}
@@ -287,17 +360,1397 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
 \bottomrule
 \endlastfoot
 
-\multirow{8}{*}{English}
- & DAC & 1024 & 9 & 86 & -- \\
- & DistilCodec & 32768 & 1 & 93 & -- \\
- & Encodec & 1024 & 2 & 75 & -- \\
- & Mimi & 2048 & 32 & 12.5 & -- \\
- & Neucodec & 65536 & 1 & 50 & -- \\
- & SNAC & 4096 & 3 & 27 & 2.048 \\
- & SpeechTokenizer & 1024 & 8 & 50 & -- \\
- & UniCodec & 16384 & 1 & 75 & 2.014 \\
- & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & -- \\
- & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & 1 & \textbf{25} & \textbf{2.086} \\
+\multirow{8}{*}{AB}
+  & DAC & 1024 & 9 & 86 & 2.33 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.414 \\
+  & Encodec & 1024 & 2 & 75 & 1.268 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.383 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.638} \\
+  & SNAC & 4096 & 3 & 27 & 2.256 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.181 \\
+  & UniCodec & 16384 & 1 & 75 & 2.392 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.409 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.16 \\
+\midrule
+\multirow{8}{*}{AF}
+  & DAC & 1024 & 9 & 86 & 2.397 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.354 \\
+  & Encodec & 1024 & 2 & 75 & 1.431 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.351 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.416} \\
+  & SNAC & 4096 & 3 & 27 & 2.215 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.286 \\
+  & UniCodec & 16384 & 1 & 75 & 2.248 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.401 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.145 \\
+\midrule
+\multirow{8}{*}{AM}
+  & DAC & 1024 & 9 & 86 & 2.174 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.288 \\
+  & Encodec & 1024 & 2 & 75 & 1.388 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.304 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.519} \\
+  & SNAC & 4096 & 3 & 27 & 2.037 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.037 \\
+  & UniCodec & 16384 & 1 & 75 & 2.198 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.412 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.02 \\
+\midrule
+\multirow{8}{*}{AR}
+  & DAC & 1024 & 9 & 86 & 2.239 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.308 \\
+  & Encodec & 1024 & 2 & 75 & 1.294 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.308 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.588} \\
+  & SNAC & 4096 & 3 & 27 & 2.069 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.152 \\
+  & UniCodec & 16384 & 1 & 75 & 2.298 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.428 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.115 \\
+\midrule
+\multirow{8}{*}{AS}
+  & DAC & 1024 & 9 & 86 & 2.245 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.313 \\
+  & Encodec & 1024 & 2 & 75 & 1.288 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.316 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.602} \\
+  & SNAC & 4096 & 3 & 27 & 2.112 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.073 \\
+  & UniCodec & 16384 & 1 & 75 & 2.177 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.416 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.046 \\
+\newpage
+\multirow{8}{*}{AST}
+  & DAC & 1024 & 9 & 86 & 2.023 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.106 \\
+  & Encodec & 1024 & 2 & 75 & 1.378 \\
+  & Mimi & 2048 & 32 & 12.5 & 1.965 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.297} \\
+  & SNAC & 4096 & 3 & 27 & 1.776 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.883 \\
+  & UniCodec & 16384 & 1 & 75 & 1.932 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 1.928 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.895 \\
+\midrule
+\multirow{8}{*}{AZ}
+  & DAC & 1024 & 9 & 86 & 2.262 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.376 \\
+  & Encodec & 1024 & 2 & 75 & 1.397 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.431 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.556} \\
+  & SNAC & 4096 & 3 & 27 & 2.267 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.051 \\
+  & UniCodec & 16384 & 1 & 75 & 2.292 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.429 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.216 \\
+\midrule
+\multirow{8}{*}{BA}
+  & DAC & 1024 & 9 & 86 & 2.138 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.201 \\
+  & Encodec & 1024 & 2 & 75 & 1.166 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.171 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.486} \\
+  & SNAC & 4096 & 3 & 27 & 1.962 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.947 \\
+  & UniCodec & 16384 & 1 & 75 & 2.185 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.329 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.062 \\
+\midrule
+\multirow{8}{*}{BAS}
+  & DAC & 1024 & 9 & 86 & 1.886 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.019 \\
+  & Encodec & 1024 & 2 & 75 & 1.222 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.039 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.437} \\
+  & SNAC & 4096 & 3 & 27 & 1.786 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.826 \\
+  & UniCodec & 16384 & 1 & 75 & 1.842 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.187 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.856 \\
+\midrule
+\multirow{8}{*}{BE}
+  & DAC & 1024 & 9 & 86 & 2.236 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.339 \\
+  & Encodec & 1024 & 2 & 75 & 1.321 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.295 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.586} \\
+  & SNAC & 4096 & 3 & 27 & 2.148 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.154 \\
+  & UniCodec & 16384 & 1 & 75 & 2.347 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.437 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.166 \\
+\newpage
+\multirow{8}{*}{BG}
+  & DAC & 1024 & 9 & 86 & 2.341 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.427 \\
+  & Encodec & 1024 & 2 & 75 & 1.402 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.39 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.557} \\
+  & SNAC & 4096 & 3 & 27 & 2.219 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.191 \\
+  & UniCodec & 16384 & 1 & 75 & 2.284 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.493 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.159 \\
+\midrule
+\multirow{8}{*}{BN}
+  & DAC & 1024 & 9 & 86 & 2.126 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.144 \\
+  & Encodec & 1024 & 2 & 75 & 1.25 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.219 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.501} \\
+  & SNAC & 4096 & 3 & 27 & 1.954 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.981 \\
+  & UniCodec & 16384 & 1 & 75 & 2.21 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.327 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.031 \\
+\midrule
+\multirow{8}{*}{BR}
+  & DAC & 1024 & 9 & 86 & 2.325 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.4 \\
+  & Encodec & 1024 & 2 & 75 & 1.421 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.33 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.656} \\
+  & SNAC & 4096 & 3 & 27 & 2.229 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.163 \\
+  & UniCodec & 16384 & 1 & 75 & 2.222 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.522 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.153 \\
+\midrule
+\multirow{8}{*}{CA}
+  & DAC & 1024 & 9 & 86 & 2.138 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.307 \\
+  & Encodec & 1024 & 2 & 75 & 1.331 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.245 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.538} \\
+  & SNAC & 4096 & 3 & 27 & 2.074 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.131 \\
+  & UniCodec & 16384 & 1 & 75 & 2.222 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.37 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.158 \\
+\midrule
+\multirow{8}{*}{CKB}
+  & DAC & 1024 & 9 & 86 & 2.337 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.473 \\
+  & Encodec & 1024 & 2 & 75 & 1.393 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.419 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.645} \\
+  & SNAC & 4096 & 3 & 27 & 2.208 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.328 \\
+  & UniCodec & 16384 & 1 & 75 & 2.414 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.555 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.349 \\
+\newpage
+\multirow{8}{*}{CNH}
+  & DAC & 1024 & 9 & 86 & 2.45 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.515 \\
+  & Encodec & 1024 & 2 & 75 & 1.403 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.519 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.601} \\
+  & SNAC & 4096 & 3 & 27 & 2.306 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.328 \\
+  & UniCodec & 16384 & 1 & 75 & 2.286 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.552 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.581 \\
+\midrule
+\multirow{8}{*}{CS}
+  & DAC & 1024 & 9 & 86 & 2.342 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.437 \\
+  & Encodec & 1024 & 2 & 75 & 1.377 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.374 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.588} \\
+  & SNAC & 4096 & 3 & 27 & 2.241 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.231 \\
+  & UniCodec & 16384 & 1 & 75 & 2.335 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.457 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.186 \\
+\midrule
+\multirow{8}{*}{CV}
+  & DAC & 1024 & 9 & 86 & 2.187 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.28 \\
+  & Encodec & 1024 & 2 & 75 & 1.279 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.221 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.519} \\
+  & SNAC & 4096 & 3 & 27 & 2.071 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.015 \\
+  & UniCodec & 16384 & 1 & 75 & 2.221 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.339 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.987 \\
+\midrule
+\multirow{8}{*}{CY}
+  & DAC & 1024 & 9 & 86 & 2.33 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.454 \\
+  & Encodec & 1024 & 2 & 75 & 1.345 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.403 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.675} \\
+  & SNAC & 4096 & 3 & 27 & 2.254 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.261 \\
+  & UniCodec & 16384 & 1 & 75 & 2.436 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.572 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.268 \\
+\midrule
+\multirow{8}{*}{DA}
+  & DAC & 1024 & 9 & 86 & 2.359 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.53 \\
+  & Encodec & 1024 & 2 & 75 & 1.409 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.375 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.617} \\
+  & SNAC & 4096 & 3 & 27 & 2.256 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.285 \\
+  & UniCodec & 16384 & 1 & 75 & 2.361 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.557 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.31 \\
+\newpage
+\multirow{8}{*}{DE}
+  & DAC & 1024 & 9 & 86 & 2.148 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.224 \\
+  & Encodec & 1024 & 2 & 75 & 1.451 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.17 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.459} \\
+  & SNAC & 4096 & 3 & 27 & 2.095 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.112 \\
+  & UniCodec & 16384 & 1 & 75 & 2.089 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.321 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.124 \\
+\midrule
+\multirow{8}{*}{DV}
+  & DAC & 1024 & 9 & 86 & 2.174 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.268 \\
+  & Encodec & 1024 & 2 & 75 & 1.227 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.303 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.583} \\
+  & SNAC & 4096 & 3 & 27 & 2.031 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.084 \\
+  & UniCodec & 16384 & 1 & 75 & 2.313 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.389 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.109 \\
+\midrule
+\multirow{8}{*}{DYU}
+  & DAC & 1024 & 9 & 86 & 1.975 \\
+  & DistilCodec & 32768 & 1 & 93 & 1.984 \\
+  & Encodec & 1024 & 2 & 75 & 1.246 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.057 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.5} \\
+  & SNAC & 4096 & 3 & 27 & 1.866 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.842 \\
+  & UniCodec & 16384 & 1 & 75 & 2.209 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.289 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.958 \\
+\midrule
+\multirow{8}{*}{EL}
+  & DAC & 1024 & 9 & 86 & 2.406 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.472 \\
+  & Encodec & 1024 & 2 & 75 & 1.445 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.385 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.601} \\
+  & SNAC & 4096 & 3 & 27 & 2.256 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.254 \\
+  & UniCodec & 16384 & 1 & 75 & 2.269 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.528 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.224 \\
+\midrule
+\multirow{8}{*}{EN}
+  & DAC & 1024 & 9 & 86 & 2.037 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.13 \\
+  & Encodec & 1024 & 2 & 75 & 1.464 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.032 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.361} \\
+  & SNAC & 4096 & 3 & 27 & 2.048 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.065 \\
+  & UniCodec & 16384 & 1 & 75 & 2.014 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.245 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.086 \\
+\newpage
+\multirow{8}{*}{EO}
+  & DAC & 1024 & 9 & 86 & 2.245 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.388 \\
+  & Encodec & 1024 & 2 & 75 & 1.265 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.35 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.615} \\
+  & SNAC & 4096 & 3 & 27 & 2.251 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.106 \\
+  & UniCodec & 16384 & 1 & 75 & 2.316 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.399 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.03 \\
+\midrule
+\multirow{8}{*}{ES}
+  & DAC & 1024 & 9 & 86 & 2.204 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.194 \\
+  & Encodec & 1024 & 2 & 75 & 1.369 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.201 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.504} \\
+  & SNAC & 4096 & 3 & 27 & 2.117 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.096 \\
+  & UniCodec & 16384 & 1 & 75 & 2.111 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.314 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.139 \\
+\midrule
+\multirow{8}{*}{ET}
+  & DAC & 1024 & 9 & 86 & 2.421 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.541 \\
+  & Encodec & 1024 & 2 & 75 & 1.311 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.488 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.656} \\
+  & SNAC & 4096 & 3 & 27 & 2.355 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.263 \\
+  & UniCodec & 16384 & 1 & 75 & 2.509 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.51 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.084 \\
+\midrule
+\multirow{8}{*}{EU}
+  & DAC & 1024 & 9 & 86 & 2.215 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.369 \\
+  & Encodec & 1024 & 2 & 75 & 1.279 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.281 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.601} \\
+  & SNAC & 4096 & 3 & 27 & 2.134 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.125 \\
+  & UniCodec & 16384 & 1 & 75 & 2.339 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.411 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.14 \\
+\midrule
+\multirow{8}{*}{FA}
+  & DAC & 1024 & 9 & 86 & 2.145 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.207 \\
+  & Encodec & 1024 & 2 & 75 & 1.323 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.2 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.564} \\
+  & SNAC & 4096 & 3 & 27 & 1.996 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.072 \\
+  & UniCodec & 16384 & 1 & 75 & 2.21 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.39 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.088 \\
+\newpage
+\multirow{8}{*}{FI}
+  & DAC & 1024 & 9 & 86 & 2.339 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.47 \\
+  & Encodec & 1024 & 2 & 75 & 1.34 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.413 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.659} \\
+  & SNAC & 4096 & 3 & 27 & 2.26 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.271 \\
+  & UniCodec & 16384 & 1 & 75 & 2.435 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.523 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.238 \\
+\midrule
+\multirow{8}{*}{FR}
+  & DAC & 1024 & 9 & 86 & 2.085 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.141 \\
+  & Encodec & 1024 & 2 & 75 & 1.386 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.081 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.354} \\
+  & SNAC & 4096 & 3 & 27 & 2.007 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.003 \\
+  & UniCodec & 16384 & 1 & 75 & 2.026 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.217 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.062 \\
+\midrule
+\multirow{8}{*}{FY-NL}
+  & DAC & 1024 & 9 & 86 & 2.236 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.355 \\
+  & Encodec & 1024 & 2 & 75 & 1.336 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.301 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.601} \\
+  & SNAC & 4096 & 3 & 27 & 2.143 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.155 \\
+  & UniCodec & 16384 & 1 & 75 & 2.322 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.471 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.109 \\
+\midrule
+\multirow{8}{*}{GA-IE}
+  & DAC & 1024 & 9 & 86 & 2.376 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.497 \\
+  & Encodec & 1024 & 2 & 75 & 1.379 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.47 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.687} \\
+  & SNAC & 4096 & 3 & 27 & 2.29 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.298 \\
+  & UniCodec & 16384 & 1 & 75 & 2.299 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.532 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.175 \\
+\midrule
+\multirow{8}{*}{GL}
+  & DAC & 1024 & 9 & 86 & 2.345 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.48 \\
+  & Encodec & 1024 & 2 & 75 & 1.39 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.385 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.649} \\
+  & SNAC & 4096 & 3 & 27 & 2.291 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.224 \\
+  & UniCodec & 16384 & 1 & 75 & 2.381 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.538 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.276 \\
+\newpage
+\multirow{8}{*}{GN}
+  & DAC & 1024 & 9 & 86 & 2.172 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.238 \\
+  & Encodec & 1024 & 2 & 75 & 1.204 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.285 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.597} \\
+  & SNAC & 4096 & 3 & 27 & 2.024 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.02 \\
+  & UniCodec & 16384 & 1 & 75 & 2.199 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.375 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.036 \\
+\midrule
+\multirow{8}{*}{HA}
+  & DAC & 1024 & 9 & 86 & 2.158 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.276 \\
+  & Encodec & 1024 & 2 & 75 & 1.293 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.205 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.584} \\
+  & SNAC & 4096 & 3 & 27 & 2.013 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.023 \\
+  & UniCodec & 16384 & 1 & 75 & 2.078 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.341 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.985 \\
+\midrule
+\multirow{8}{*}{HE}
+  & DAC & 1024 & 9 & 86 & 2.388 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.517 \\
+  & Encodec & 1024 & 2 & 75 & 1.609 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.347 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.577} \\
+  & SNAC & 4096 & 3 & 27 & 2.1 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.24 \\
+  & UniCodec & 16384 & 1 & 75 & 2.207 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.524 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.246 \\
+\midrule
+\multirow{8}{*}{HI}
+  & DAC & 1024 & 9 & 86 & 2.296 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.397 \\
+  & Encodec & 1024 & 2 & 75 & 1.302 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.346 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.629} \\
+  & SNAC & 4096 & 3 & 27 & 2.238 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.145 \\
+  & UniCodec & 16384 & 1 & 75 & 2.312 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.463 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.2 \\
+\midrule
+\multirow{8}{*}{HSB}
+  & DAC & 1024 & 9 & 86 & 2.497 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.7 \\
+  & Encodec & 1024 & 2 & 75 & 1.466 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.631 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.803} \\
+  & SNAC & 4096 & 3 & 27 & 2.47 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.46 \\
+  & UniCodec & 16384 & 1 & 75 & 2.462 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.693 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.304 \\
+\newpage
+\multirow{8}{*}{HU}
+  & DAC & 1024 & 9 & 86 & 2.365 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.508 \\
+  & Encodec & 1024 & 2 & 75 & 1.368 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.424 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.658} \\
+  & SNAC & 4096 & 3 & 27 & 2.303 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.27 \\
+  & UniCodec & 16384 & 1 & 75 & 2.427 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.553 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.28 \\
+\midrule
+\multirow{8}{*}{HY-AM}
+  & DAC & 1024 & 9 & 86 & 2.423 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.585 \\
+  & Encodec & 1024 & 2 & 75 & 1.281 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.478 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.694} \\
+  & SNAC & 4096 & 3 & 27 & 2.413 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.242 \\
+  & UniCodec & 16384 & 1 & 75 & 2.576 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.559 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.282 \\
+\midrule
+\multirow{8}{*}{IA}
+  & DAC & 1024 & 9 & 86 & 2.522 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.612 \\
+  & Encodec & 1024 & 2 & 75 & 1.353 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.647 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.813} \\
+  & SNAC & 4096 & 3 & 27 & 2.456 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.413 \\
+  & UniCodec & 16384 & 1 & 75 & 2.5 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.649 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.352 \\
+\midrule
+\multirow{8}{*}{ID}
+  & DAC & 1024 & 9 & 86 & 2.159 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.207 \\
+  & Encodec & 1024 & 2 & 75 & 1.33 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.232 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.499} \\
+  & SNAC & 4096 & 3 & 27 & 2.084 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.042 \\
+  & UniCodec & 16384 & 1 & 75 & 2.116 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.343 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.058 \\
+\midrule
+\multirow{8}{*}{IG}
+  & DAC & 1024 & 9 & 86 & 2.053 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.313 \\
+  & Encodec & 1024 & 2 & 75 & 1.096 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.38 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.88} \\
+  & SNAC & 4096 & 3 & 27 & 1.998 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.06 \\
+  & UniCodec & 16384 & 1 & 75 & 2.592 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.572 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.127 \\
+\newpage
+\multirow{8}{*}{IT}
+  & DAC & 1024 & 9 & 86 & 2.2 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.261 \\
+  & Encodec & 1024 & 2 & 75 & 1.414 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.152 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.494} \\
+  & SNAC & 4096 & 3 & 27 & 2.098 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.062 \\
+  & UniCodec & 16384 & 1 & 75 & 2.149 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.304 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.108 \\
+\midrule
+\multirow{8}{*}{JA}
+  & DAC & 1024 & 9 & 86 & 2.464 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.645 \\
+  & Encodec & 1024 & 2 & 75 & 1.348 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.537 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.685} \\
+  & SNAC & 4096 & 3 & 27 & 2.517 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.268 \\
+  & UniCodec & 16384 & 1 & 75 & 2.577 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.612 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.33 \\
+\midrule
+\multirow{8}{*}{KA}
+  & DAC & 1024 & 9 & 86 & 2.425 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.535 \\
+  & Encodec & 1024 & 2 & 75 & 1.387 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.463 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.655} \\
+  & SNAC & 4096 & 3 & 27 & 2.375 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.274 \\
+  & UniCodec & 16384 & 1 & 75 & 2.584 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.565 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.252 \\
+\midrule
+\multirow{8}{*}{KAB}
+  & DAC & 1024 & 9 & 86 & 2.068 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.169 \\
+  & Encodec & 1024 & 2 & 75 & 1.381 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.123 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.406} \\
+  & SNAC & 4096 & 3 & 27 & 2.028 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.006 \\
+  & UniCodec & 16384 & 1 & 75 & 2.054 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.272 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.972 \\
+\midrule
+\multirow{8}{*}{KK}
+  & DAC & 1024 & 9 & 86 & 2.168 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.264 \\
+  & Encodec & 1024 & 2 & 75 & 1.288 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.195 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.457} \\
+  & SNAC & 4096 & 3 & 27 & 2.069 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.053 \\
+  & UniCodec & 16384 & 1 & 75 & 2.133 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.302 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.085 \\
+\newpage
+\multirow{8}{*}{KMR}
+  & DAC & 1024 & 9 & 86 & 2.153 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.259 \\
+  & Encodec & 1024 & 2 & 75 & 1.293 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.249 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.54} \\
+  & SNAC & 4096 & 3 & 27 & 2.046 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.149 \\
+  & UniCodec & 16384 & 1 & 75 & 2.207 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.402 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.128 \\
+\midrule
+\multirow{8}{*}{KO}
+  & DAC & 1024 & 9 & 86 & 2.274 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.413 \\
+  & Encodec & 1024 & 2 & 75 & 1.307 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.325 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.596} \\
+  & SNAC & 4096 & 3 & 27 & 2.251 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.123 \\
+  & UniCodec & 16384 & 1 & 75 & 2.269 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.345 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.097 \\
+\midrule
+\multirow{8}{*}{KY}
+  & DAC & 1024 & 9 & 86 & 2.042 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.134 \\
+  & Encodec & 1024 & 2 & 75 & 1.229 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.113 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.386} \\
+  & SNAC & 4096 & 3 & 27 & 1.976 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.912 \\
+  & UniCodec & 16384 & 1 & 75 & 2.049 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.228 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.939 \\
+\midrule
+\multirow{8}{*}{LG}
+  & DAC & 1024 & 9 & 86 & 1.999 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.007 \\
+  & Encodec & 1024 & 2 & 75 & 1.173 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.105 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.388} \\
+  & SNAC & 4096 & 3 & 27 & 1.814 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.848 \\
+  & UniCodec & 16384 & 1 & 75 & 2.081 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.192 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.856 \\
+\midrule
+\multirow{8}{*}{LIJ}
+  & DAC & 1024 & 9 & 86 & 2.483 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.578 \\
+  & Encodec & 1024 & 2 & 75 & 1.33 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.57 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.766} \\
+  & SNAC & 4096 & 3 & 27 & 2.302 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.36 \\
+  & UniCodec & 16384 & 1 & 75 & 2.474 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.605 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.345 \\
+\newpage
+\multirow{8}{*}{LO}
+  & DAC & 1024 & 9 & 86 & 2.366 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.379 \\
+  & Encodec & 1024 & 2 & 75 & 1.267 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.408 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.542} \\
+  & SNAC & 4096 & 3 & 27 & 2.15 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.278 \\
+  & UniCodec & 16384 & 1 & 75 & 2.214 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.347 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.148 \\
+\midrule
+\multirow{8}{*}{LT}
+  & DAC & 1024 & 9 & 86 & 2.303 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.41 \\
+  & Encodec & 1024 & 2 & 75 & 1.303 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.401 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.601} \\
+  & SNAC & 4096 & 3 & 27 & 2.179 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.225 \\
+  & UniCodec & 16384 & 1 & 75 & 2.367 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.446 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.147 \\
+\midrule
+\multirow{8}{*}{LTG}
+  & DAC & 1024 & 9 & 86 & 2.47 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.603 \\
+  & Encodec & 1024 & 2 & 75 & 1.355 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.542 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.688} \\
+  & SNAC & 4096 & 3 & 27 & 2.394 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.365 \\
+  & UniCodec & 16384 & 1 & 75 & 2.514 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.666 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.345 \\
+\midrule
+\multirow{8}{*}{LV}
+  & DAC & 1024 & 9 & 86 & 2.343 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.506 \\
+  & Encodec & 1024 & 2 & 75 & 1.326 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.44 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.699} \\
+  & SNAC & 4096 & 3 & 27 & 2.298 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.233 \\
+  & UniCodec & 16384 & 1 & 75 & 2.447 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.56 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.269 \\
+\midrule
+\multirow{8}{*}{MDF}
+  & DAC & 1024 & 9 & 86 & 2.246 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.264 \\
+  & Encodec & 1024 & 2 & 75 & 1.31 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.163 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.465} \\
+  & SNAC & 4096 & 3 & 27 & 2.165 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.072 \\
+  & UniCodec & 16384 & 1 & 75 & 2.329 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.405 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.229 \\
+\newpage
+\multirow{8}{*}{MHR}
+  & DAC & 1024 & 9 & 86 & 2.297 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.382 \\
+  & Encodec & 1024 & 2 & 75 & 1.239 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.355 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.661} \\
+  & SNAC & 4096 & 3 & 27 & 2.232 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.126 \\
+  & UniCodec & 16384 & 1 & 75 & 2.423 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.541 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.102 \\
+\midrule
+\multirow{8}{*}{MK}
+  & DAC & 1024 & 9 & 86 & 2.37 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.467 \\
+  & Encodec & 1024 & 2 & 75 & 1.298 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.366 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.647} \\
+  & SNAC & 4096 & 3 & 27 & 2.182 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.182 \\
+  & UniCodec & 16384 & 1 & 75 & 2.371 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.467 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.193 \\
+\midrule
+\multirow{8}{*}{ML}
+  & DAC & 1024 & 9 & 86 & 2.468 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.573 \\
+  & Encodec & 1024 & 2 & 75 & 1.336 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.541 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.795} \\
+  & SNAC & 4096 & 3 & 27 & 2.361 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.338 \\
+  & UniCodec & 16384 & 1 & 75 & 2.36 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.645 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.222 \\
+\midrule
+\multirow{8}{*}{MN}
+  & DAC & 1024 & 9 & 86 & 2.186 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.244 \\
+  & Encodec & 1024 & 2 & 75 & 1.453 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.174 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.307} \\
+  & SNAC & 4096 & 3 & 27 & 2.046 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.044 \\
+  & UniCodec & 16384 & 1 & 75 & 2.018 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.264 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.161 \\
+\midrule
+\multirow{8}{*}{MR}
+  & DAC & 1024 & 9 & 86 & 2.1 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.121 \\
+  & Encodec & 1024 & 2 & 75 & 1.119 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.217 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.587} \\
+  & SNAC & 4096 & 3 & 27 & 2.012 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.843 \\
+  & UniCodec & 16384 & 1 & 75 & 2.285 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.364 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.908 \\
+\newpage
+\multirow{8}{*}{MRJ}
+  & DAC & 1024 & 9 & 86 & 2.179 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.252 \\
+  & Encodec & 1024 & 2 & 75 & 1.145 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.263 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.523} \\
+  & SNAC & 4096 & 3 & 27 & 1.976 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.037 \\
+  & UniCodec & 16384 & 1 & 75 & 2.279 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.451 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.979 \\
+\midrule
+\multirow{8}{*}{MT}
+  & DAC & 1024 & 9 & 86 & 2.424 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.518 \\
+  & Encodec & 1024 & 2 & 75 & 1.409 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.444 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.639} \\
+  & SNAC & 4096 & 3 & 27 & 2.321 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.235 \\
+  & UniCodec & 16384 & 1 & 75 & 2.337 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.568 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.235 \\
+\midrule
+\multirow{8}{*}{MYV}
+  & DAC & 1024 & 9 & 86 & 2.253 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.334 \\
+  & Encodec & 1024 & 2 & 75 & 1.242 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.371 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.738} \\
+  & SNAC & 4096 & 3 & 27 & 2.106 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.146 \\
+  & UniCodec & 16384 & 1 & 75 & 2.347 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.549 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.164 \\
+\midrule
+\multirow{8}{*}{NAN-TW}
+  & DAC & 1024 & 9 & 86 & 2.208 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.358 \\
+  & Encodec & 1024 & 2 & 75 & 1.357 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.278 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.473} \\
+  & SNAC & 4096 & 3 & 27 & 2.148 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.178 \\
+  & UniCodec & 16384 & 1 & 75 & 2.121 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.372 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.185 \\
+\midrule
+\multirow{8}{*}{NE-NP}
+  & DAC & 1024 & 9 & 86 & 2.422 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.45 \\
+  & Encodec & 1024 & 2 & 75 & 1.453 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.461 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.637} \\
+  & SNAC & 4096 & 3 & 27 & 2.4 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.298 \\
+  & UniCodec & 16384 & 1 & 75 & 2.365 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.554 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.279 \\
+\newpage
+\multirow{8}{*}{NHI}
+  & DAC & 1024 & 9 & 86 & 2.517 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.409 \\
+  & Encodec & 1024 & 2 & 75 & 1.148 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.134 \\
+  & Neucodec & 65536 & 1 & 50 & 2.53 \\
+  & SNAC & 4096 & 3 & 27 & 2.561 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.461 \\
+  & \textbf{UniCodec} & \textbf{16384} & \textbf{1} & \textbf{75} & \textbf{2.87} \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.722 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.431 \\
+\midrule
+\multirow{8}{*}{NL}
+  & DAC & 1024 & 9 & 86 & 2.315 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.416 \\
+  & Encodec & 1024 & 2 & 75 & 1.388 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.336 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.55} \\
+  & SNAC & 4096 & 3 & 27 & 2.193 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.203 \\
+  & UniCodec & 16384 & 1 & 75 & 2.256 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.457 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.168 \\
+\midrule
+\multirow{8}{*}{NN-NO}
+  & DAC & 1024 & 9 & 86 & 2.534 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.718 \\
+  & Encodec & 1024 & 2 & 75 & 1.437 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.627 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.761} \\
+  & SNAC & 4096 & 3 & 27 & 2.495 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.407 \\
+  & UniCodec & 16384 & 1 & 75 & 2.536 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.727 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.369 \\
+\midrule
+\multirow{8}{*}{OC}
+  & DAC & 1024 & 9 & 86 & 2.349 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.441 \\
+  & Encodec & 1024 & 2 & 75 & 1.296 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.39 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.681} \\
+  & SNAC & 4096 & 3 & 27 & 2.287 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.187 \\
+  & UniCodec & 16384 & 1 & 75 & 2.398 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.517 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.208 \\
+\midrule
+\multirow{8}{*}{OR}
+  & DAC & 1024 & 9 & 86 & 2.443 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.599 \\
+  & Encodec & 1024 & 2 & 75 & 1.27 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.491 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.738} \\
+  & SNAC & 4096 & 3 & 27 & 2.252 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.261 \\
+  & UniCodec & 16384 & 1 & 75 & 2.391 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.624 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.194 \\
+\newpage
+\multirow{8}{*}{OS}
+  & DAC & 1024 & 9 & 86 & 2.145 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.104 \\
+  & Encodec & 1024 & 2 & 75 & 1.194 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.008 \\
+  & Neucodec & 65536 & 1 & 50 & 2.325 \\
+  & SNAC & 4096 & 3 & 27 & 1.723 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.959 \\
+  & UniCodec & 16384 & 1 & 75 & 2.034 \\
+  & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & \textbf{1} & \textbf{25} & \textbf{2.344} \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.082 \\
+\midrule
+\multirow{8}{*}{PA-IN}
+  & DAC & 1024 & 9 & 86 & 2.391 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.508 \\
+  & Encodec & 1024 & 2 & 75 & 1.316 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.539 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.708} \\
+  & SNAC & 4096 & 3 & 27 & 2.394 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.311 \\
+  & UniCodec & 16384 & 1 & 75 & 2.487 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.631 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.37 \\
+\midrule
+\multirow{8}{*}{PL}
+  & DAC & 1024 & 9 & 86 & 2.258 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.312 \\
+  & Encodec & 1024 & 2 & 75 & 1.424 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.296 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.493} \\
+  & SNAC & 4096 & 3 & 27 & 2.144 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.159 \\
+  & UniCodec & 16384 & 1 & 75 & 2.174 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.392 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.122 \\
+\midrule
+\multirow{8}{*}{PS}
+  & DAC & 1024 & 9 & 86 & 1.876 \\
+  & DistilCodec & 32768 & 1 & 93 & 1.996 \\
+  & Encodec & 1024 & 2 & 75 & 1.146 \\
+  & Mimi & 2048 & 32 & 12.5 & 1.985 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.619} \\
+  & SNAC & 4096 & 3 & 27 & 1.859 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.731 \\
+  & UniCodec & 16384 & 1 & 75 & 2.026 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.177 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.932 \\
+\midrule
+\multirow{8}{*}{PT}
+  & DAC & 1024 & 9 & 86 & 2.231 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.308 \\
+  & Encodec & 1024 & 2 & 75 & 1.405 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.273 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.491} \\
+  & SNAC & 4096 & 3 & 27 & 2.187 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.202 \\
+  & UniCodec & 16384 & 1 & 75 & 2.221 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.386 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.136 \\
+\newpage
+\multirow{8}{*}{RM-SURSILV}
+  & DAC & 1024 & 9 & 86 & 2.286 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.517 \\
+  & Encodec & 1024 & 2 & 75 & 1.291 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.49 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.744} \\
+  & SNAC & 4096 & 3 & 27 & 2.43 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.23 \\
+  & UniCodec & 16384 & 1 & 75 & 2.451 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.598 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.326 \\
+\midrule
+\multirow{8}{*}{RM-VALLADER}
+  & DAC & 1024 & 9 & 86 & 2.304 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.481 \\
+  & Encodec & 1024 & 2 & 75 & 1.241 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.392 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.697} \\
+  & SNAC & 4096 & 3 & 27 & 2.344 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.148 \\
+  & UniCodec & 16384 & 1 & 75 & 2.451 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.627 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.387 \\
+\midrule
+\multirow{8}{*}{RO}
+  & DAC & 1024 & 9 & 86 & 2.318 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.481 \\
+  & Encodec & 1024 & 2 & 75 & 1.381 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.413 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.594} \\
+  & SNAC & 4096 & 3 & 27 & 2.272 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.244 \\
+  & UniCodec & 16384 & 1 & 75 & 2.362 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.526 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.191 \\
+\midrule
+\multirow{8}{*}{RU}
+  & DAC & 1024 & 9 & 86 & 2.288 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.361 \\
+  & Encodec & 1024 & 2 & 75 & 1.38 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.302 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.594} \\
+  & SNAC & 4096 & 3 & 27 & 2.159 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.176 \\
+  & UniCodec & 16384 & 1 & 75 & 2.275 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.368 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.134 \\
+\midrule
+\multirow{8}{*}{RW}
+  & DAC & 1024 & 9 & 86 & 1.774 \\
+  & DistilCodec & 32768 & 1 & 93 & 1.759 \\
+  & Encodec & 1024 & 2 & 75 & 1.148 \\
+  & Mimi & 2048 & 32 & 12.5 & 1.8 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.212} \\
+  & SNAC & 4096 & 3 & 27 & 1.706 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.633 \\
+  & UniCodec & 16384 & 1 & 75 & 1.87 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 1.954 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.645 \\
+\newpage
+\multirow{8}{*}{SAH}
+  & DAC & 1024 & 9 & 86 & 2.235 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.426 \\
+  & Encodec & 1024 & 2 & 75 & 1.245 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.288 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.536} \\
+  & SNAC & 4096 & 3 & 27 & 2.153 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.141 \\
+  & UniCodec & 16384 & 1 & 75 & 2.288 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.404 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.188 \\
+\midrule
+\multirow{8}{*}{SAT}
+  & DAC & 1024 & 9 & 86 & 2.318 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.367 \\
+  & Encodec & 1024 & 2 & 75 & 1.194 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.427 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.625} \\
+  & SNAC & 4096 & 3 & 27 & 2.008 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.183 \\
+  & UniCodec & 16384 & 1 & 75 & 2.197 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.429 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.123 \\
+\midrule
+\multirow{8}{*}{SC}
+  & DAC & 1024 & 9 & 86 & 2.168 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.262 \\
+  & Encodec & 1024 & 2 & 75 & 1.183 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.254 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.622} \\
+  & SNAC & 4096 & 3 & 27 & 2.113 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.106 \\
+  & UniCodec & 16384 & 1 & 75 & 2.203 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.334 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.965 \\
+\midrule
+\multirow{8}{*}{SK}
+  & DAC & 1024 & 9 & 86 & 2.276 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.341 \\
+  & Encodec & 1024 & 2 & 75 & 1.427 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.33 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.524} \\
+  & SNAC & 4096 & 3 & 27 & 2.186 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.196 \\
+  & UniCodec & 16384 & 1 & 75 & 2.198 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.453 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.143 \\
+\midrule
+\multirow{8}{*}{SKR}
+  & DAC & 1024 & 9 & 86 & 2.079 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.111 \\
+  & Encodec & 1024 & 2 & 75 & 1.23 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.176 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.522} \\
+  & SNAC & 4096 & 3 & 27 & 1.83 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.969 \\
+  & UniCodec & 16384 & 1 & 75 & 2.127 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.3 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.965 \\
+\newpage
+\multirow{8}{*}{SL}
+  & DAC & 1024 & 9 & 86 & 2.436 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.594 \\
+  & Encodec & 1024 & 2 & 75 & 1.449 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.476 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.725} \\
+  & SNAC & 4096 & 3 & 27 & 2.392 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.394 \\
+  & UniCodec & 16384 & 1 & 75 & 2.383 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.639 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.334 \\
+\midrule
+\multirow{8}{*}{SQ}
+  & DAC & 1024 & 9 & 86 & 2.331 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.501 \\
+  & Encodec & 1024 & 2 & 75 & 1.36 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.343 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.602} \\
+  & SNAC & 4096 & 3 & 27 & 2.261 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.263 \\
+  & UniCodec & 16384 & 1 & 75 & 2.398 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.538 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.252 \\
+\midrule
+\multirow{8}{*}{SR}
+  & DAC & 1024 & 9 & 86 & 2.391 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.47 \\
+  & Encodec & 1024 & 2 & 75 & 1.462 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.394 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.607} \\
+  & SNAC & 4096 & 3 & 27 & 2.259 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.318 \\
+  & UniCodec & 16384 & 1 & 75 & 2.258 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.53 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.286 \\
+\midrule
+\multirow{8}{*}{SV-SE}
+  & DAC & 1024 & 9 & 86 & 2.291 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.431 \\
+  & Encodec & 1024 & 2 & 75 & 1.385 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.341 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.556} \\
+  & SNAC & 4096 & 3 & 27 & 2.179 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.22 \\
+  & UniCodec & 16384 & 1 & 75 & 2.308 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.463 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.202 \\
+\midrule
+\multirow{8}{*}{SW}
+  & DAC & 1024 & 9 & 86 & 1.936 \\
+  & DistilCodec & 32768 & 1 & 93 & 1.929 \\
+  & Encodec & 1024 & 2 & 75 & 1.157 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.005 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.371} \\
+  & SNAC & 4096 & 3 & 27 & 1.845 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.811 \\
+  & UniCodec & 16384 & 1 & 75 & 2.029 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.181 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.777 \\
+\newpage
+\multirow{8}{*}{TA}
+  & DAC & 1024 & 9 & 86 & 2.222 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.357 \\
+  & Encodec & 1024 & 2 & 75 & 1.197 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.327 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.673} \\
+  & SNAC & 4096 & 3 & 27 & 2.11 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.042 \\
+  & UniCodec & 16384 & 1 & 75 & 2.331 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.379 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.027 \\
+\midrule
+\multirow{8}{*}{TE}
+  & DAC & 1024 & 9 & 86 & 2.304 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.476 \\
+  & Encodec & 1024 & 2 & 75 & 1.309 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.327 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.63} \\
+  & SNAC & 4096 & 3 & 27 & 2.385 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.237 \\
+  & UniCodec & 16384 & 1 & 75 & 2.306 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.534 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.273 \\
+\midrule
+\multirow{8}{*}{TH}
+  & DAC & 1024 & 9 & 86 & 2.318 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.473 \\
+  & Encodec & 1024 & 2 & 75 & 1.251 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.362 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.575} \\
+  & SNAC & 4096 & 3 & 27 & 2.344 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.223 \\
+  & UniCodec & 16384 & 1 & 75 & 2.399 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.489 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.317 \\
+\midrule
+\multirow{8}{*}{TI}
+  & DAC & 1024 & 9 & 86 & 2.102 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.27 \\
+  & Encodec & 1024 & 2 & 75 & 1.389 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.245 \\
+  & Neucodec & 65536 & 1 & 50 & 2.171 \\
+  & SNAC & 4096 & 3 & 27 & 1.867 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.939 \\
+  & UniCodec & 16384 & 1 & 75 & 2.338 \\
+  & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & \textbf{1} & \textbf{25} & \textbf{2.525} \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.216 \\
+\midrule
+\multirow{8}{*}{TIG}
+  & DAC & 1024 & 9 & 86 & 2.467 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.619 \\
+  & Encodec & 1024 & 2 & 75 & 1.449 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.535 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.752} \\
+  & SNAC & 4096 & 3 & 27 & 2.447 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.447 \\
+  & UniCodec & 16384 & 1 & 75 & 2.308 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.573 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.423 \\
+\newpage
+\multirow{8}{*}{TK}
+  & DAC & 1024 & 9 & 86 & 2.164 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.266 \\
+  & Encodec & 1024 & 2 & 75 & 1.249 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.268 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.517} \\
+  & SNAC & 4096 & 3 & 27 & 2.005 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.05 \\
+  & UniCodec & 16384 & 1 & 75 & 2.131 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.299 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.073 \\
+\midrule
+\multirow{8}{*}{TOK}
+  & DAC & 1024 & 9 & 86 & 2.389 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.572 \\
+  & Encodec & 1024 & 2 & 75 & 1.374 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.476 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.714} \\
+  & SNAC & 4096 & 3 & 27 & 2.444 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.306 \\
+  & UniCodec & 16384 & 1 & 75 & 2.449 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.609 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.32 \\
+\midrule
+\multirow{8}{*}{TR}
+  & DAC & 1024 & 9 & 86 & 2.283 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.386 \\
+  & Encodec & 1024 & 2 & 75 & 1.415 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.345 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.56} \\
+  & SNAC & 4096 & 3 & 27 & 2.189 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.194 \\
+  & UniCodec & 16384 & 1 & 75 & 2.302 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.45 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.217 \\
+\midrule
+\multirow{8}{*}{TT}
+  & DAC & 1024 & 9 & 86 & 2.133 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.233 \\
+  & Encodec & 1024 & 2 & 75 & 1.196 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.218 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.521} \\
+  & SNAC & 4096 & 3 & 27 & 2.045 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.979 \\
+  & UniCodec & 16384 & 1 & 75 & 2.204 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.327 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.924 \\
+\midrule
+\multirow{8}{*}{TW}
+  & DAC & 1024 & 9 & 86 & 2.169 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.486 \\
+  & Encodec & 1024 & 2 & 75 & 1.224 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.369 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.678} \\
+  & SNAC & 4096 & 3 & 27 & 1.97 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.331 \\
+  & UniCodec & 16384 & 1 & 75 & 2.193 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.514 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.359 \\
+\newpage
+\multirow{8}{*}{UG}
+  & DAC & 1024 & 9 & 86 & 2.348 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.502 \\
+  & Encodec & 1024 & 2 & 75 & 1.323 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.381 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.584} \\
+  & SNAC & 4096 & 3 & 27 & 2.303 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.263 \\
+  & UniCodec & 16384 & 1 & 75 & 2.406 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.529 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.349 \\
+\midrule
+\multirow{8}{*}{UK}
+  & DAC & 1024 & 9 & 86 & 2.337 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.449 \\
+  & Encodec & 1024 & 2 & 75 & 1.316 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.402 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.674} \\
+  & SNAC & 4096 & 3 & 27 & 2.254 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.218 \\
+  & UniCodec & 16384 & 1 & 75 & 2.426 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.531 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.155 \\
+\midrule
+\multirow{8}{*}{UR}
+  & DAC & 1024 & 9 & 86 & 2.298 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.409 \\
+  & Encodec & 1024 & 2 & 75 & 1.266 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.418 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.692} \\
+  & SNAC & 4096 & 3 & 27 & 2.374 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.152 \\
+  & UniCodec & 16384 & 1 & 75 & 2.496 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.484 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.13 \\
+\midrule
+\multirow{8}{*}{UZ}
+  & DAC & 1024 & 9 & 86 & 2.09 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.19 \\
+  & Encodec & 1024 & 2 & 75 & 1.284 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.201 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.462} \\
+  & SNAC & 4096 & 3 & 27 & 1.966 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.024 \\
+  & UniCodec & 16384 & 1 & 75 & 2.16 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.312 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.037 \\
+\midrule
+\multirow{8}{*}{VI}
+  & DAC & 1024 & 9 & 86 & 2.194 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.25 \\
+  & Encodec & 1024 & 2 & 75 & 1.249 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.209 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.467} \\
+  & SNAC & 4096 & 3 & 27 & 2.168 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.063 \\
+  & UniCodec & 16384 & 1 & 75 & 2.087 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.252 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.064 \\
+\newpage
+\multirow{8}{*}{VOT}
+  & DAC & 1024 & 9 & 86 & 2.001 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.409 \\
+  & Encodec & 1024 & 2 & 75 & 1.371 \\
+  & Mimi & 2048 & 32 & 12.5 & 1.892 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.538} \\
+  & SNAC & 4096 & 3 & 27 & 2.323 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.799 \\
+  & UniCodec & 16384 & 1 & 75 & 2.105 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 1.897 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.14 \\
+\midrule
+\multirow{8}{*}{YI}
+  & DAC & 1024 & 9 & 86 & 2.398 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.702 \\
+  & Encodec & 1024 & 2 & 75 & 1.348 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.39 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.863} \\
+  & SNAC & 4096 & 3 & 27 & 2.323 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.138 \\
+  & UniCodec & 16384 & 1 & 75 & 2.506 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.485 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.483 \\
+\midrule
+\multirow{8}{*}{YO}
+  & DAC & 1024 & 9 & 86 & 2.096 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.125 \\
+  & Encodec & 1024 & 2 & 75 & 1.21 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.182 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.414} \\
+  & SNAC & 4096 & 3 & 27 & 1.974 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 1.932 \\
+  & UniCodec & 16384 & 1 & 75 & 2.105 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.304 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.022 \\
+\midrule
+\multirow{8}{*}{YUE}
+  & DAC & 1024 & 9 & 86 & 2.42 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.536 \\
+  & Encodec & 1024 & 2 & 75 & 1.325 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.476 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.647} \\
+  & SNAC & 4096 & 3 & 27 & 2.374 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.339 \\
+  & UniCodec & 16384 & 1 & 75 & 2.474 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.59 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.434 \\
+\midrule
+\multirow{8}{*}{ZGH}
+  & DAC & 1024 & 9 & 86 & 2.337 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.517 \\
+  & Encodec & 1024 & 2 & 75 & 1.426 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.437 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.673} \\
+  & SNAC & 4096 & 3 & 27 & 2.24 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.245 \\
+  & UniCodec & 16384 & 1 & 75 & 2.223 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.607 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.176 \\
+\newpage
+\multirow{8}{*}{ZH-CN}
+  & DAC & 1024 & 9 & 86 & 2.181 \\
+  & DistilCodec & 32768 & 1 & 93 & 2.252 \\
+  & Encodec & 1024 & 2 & 75 & 1.304 \\
+  & Mimi & 2048 & 32 & 12.5 & 2.184 \\
+  & \textbf{Neucodec} & \textbf{65536} & \textbf{1} & \textbf{50} & \textbf{2.471} \\
+  & SNAC & 4096 & 3 & 27 & 2.071 \\
+  & SpeechTokenizer & 1024 & 8 & 50 & 2.008 \\
+  & UniCodec & 16384 & 1 & 75 & 2.155 \\
+  & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.288 \\
+  & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.057 \\
 
 \end{longtable}
 
