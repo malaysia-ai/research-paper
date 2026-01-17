@@ -329,7 +329,7 @@ Finally, downstream evaluation remains an open area. One promising direction is 
 \section{Acknowledgement}
 
 Special thanks to my wife for her patience and for not getting too upset about the electricity bill
-caused by running two RTX 3090 Ti GPUs around the clock for 45 days.
+caused by running two RTX 3090 Ti GPUs around the clock for 45 days. I also thank Scicom MSC Berhad for providing the compute resources used for evaluation
 
 \bibliographystyle{plainnat}
 \bibliography{neurips_2023}
@@ -408,7 +408,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.298 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.428 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.115 \\
-\midrule
+\newpage
 \multirow{8}{*}{AS}
   & DAC & 1024 & 9 & 86 & 2.245 \\
   & DistilCodec & 32768 & 1 & 93 & 2.313 \\
@@ -420,7 +420,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.177 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.416 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.046 \\
-\newpage
+\midrule
 \multirow{8}{*}{AST}
   & DAC & 1024 & 9 & 86 & 2.023 \\
   & DistilCodec & 32768 & 1 & 93 & 2.106 \\
@@ -468,7 +468,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 1.842 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.187 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.856 \\
-\midrule
+\newpage
 \multirow{8}{*}{BE}
   & DAC & 1024 & 9 & 86 & 2.236 \\
   & DistilCodec & 32768 & 1 & 93 & 2.339 \\
@@ -480,7 +480,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.347 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.437 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.166 \\
-\newpage
+\midrule
 \multirow{8}{*}{BG}
   & DAC & 1024 & 9 & 86 & 2.341 \\
   & DistilCodec & 32768 & 1 & 93 & 2.427 \\
@@ -528,7 +528,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.222 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.37 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.158 \\
-\midrule
+\newpage
 \multirow{8}{*}{CKB}
   & DAC & 1024 & 9 & 86 & 2.337 \\
   & DistilCodec & 32768 & 1 & 93 & 2.473 \\
@@ -540,7 +540,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.414 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.555 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.349 \\
-\newpage
+\midrule
 \multirow{8}{*}{CNH}
   & DAC & 1024 & 9 & 86 & 2.45 \\
   & DistilCodec & 32768 & 1 & 93 & 2.515 \\
@@ -588,7 +588,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.436 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.572 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.268 \\
-\midrule
+\newpage
 \multirow{8}{*}{DA}
   & DAC & 1024 & 9 & 86 & 2.359 \\
   & DistilCodec & 32768 & 1 & 93 & 2.53 \\
@@ -600,7 +600,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.361 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.557 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.31 \\
-\newpage
+\midrule
 \multirow{8}{*}{DE}
   & DAC & 1024 & 9 & 86 & 2.148 \\
   & DistilCodec & 32768 & 1 & 93 & 2.224 \\
@@ -648,7 +648,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.269 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.528 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.224 \\
-\midrule
+\newpage
 \multirow{8}{*}{EN}
   & DAC & 1024 & 9 & 86 & 2.037 \\
   & DistilCodec & 32768 & 1 & 93 & 2.13 \\
@@ -660,7 +660,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.014 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.245 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.086 \\
-\newpage
+\midrule
 \multirow{8}{*}{EO}
   & DAC & 1024 & 9 & 86 & 2.245 \\
   & DistilCodec & 32768 & 1 & 93 & 2.388 \\
@@ -708,7 +708,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.339 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.411 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.14 \\
-\midrule
+\newpage
 \multirow{8}{*}{FA}
   & DAC & 1024 & 9 & 86 & 2.145 \\
   & DistilCodec & 32768 & 1 & 93 & 2.207 \\
@@ -720,7 +720,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.21 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.39 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.088 \\
-\newpage
+\midrule
 \multirow{8}{*}{FI}
   & DAC & 1024 & 9 & 86 & 2.339 \\
   & DistilCodec & 32768 & 1 & 93 & 2.47 \\
@@ -768,7 +768,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.299 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.532 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.175 \\
-\midrule
+\newpage
 \multirow{8}{*}{GL}
   & DAC & 1024 & 9 & 86 & 2.345 \\
   & DistilCodec & 32768 & 1 & 93 & 2.48 \\
@@ -780,7 +780,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.381 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.538 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.276 \\
-\newpage
+\midrule
 \multirow{8}{*}{GN}
   & DAC & 1024 & 9 & 86 & 2.172 \\
   & DistilCodec & 32768 & 1 & 93 & 2.238 \\
@@ -828,7 +828,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.312 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.463 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.2 \\
-\midrule
+\newpage
 \multirow{8}{*}{HSB}
   & DAC & 1024 & 9 & 86 & 2.497 \\
   & DistilCodec & 32768 & 1 & 93 & 2.7 \\
@@ -840,7 +840,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.462 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.693 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.304 \\
-\newpage
+\midrule
 \multirow{8}{*}{HU}
   & DAC & 1024 & 9 & 86 & 2.365 \\
   & DistilCodec & 32768 & 1 & 93 & 2.508 \\
@@ -888,7 +888,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.116 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.343 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.058 \\
-\midrule
+\newpage
 \multirow{8}{*}{IG}
   & DAC & 1024 & 9 & 86 & 2.053 \\
   & DistilCodec & 32768 & 1 & 93 & 2.313 \\
@@ -900,7 +900,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.592 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.572 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.127 \\
-\newpage
+\midrule
 \multirow{8}{*}{IT}
   & DAC & 1024 & 9 & 86 & 2.2 \\
   & DistilCodec & 32768 & 1 & 93 & 2.261 \\
@@ -948,7 +948,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.054 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.272 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.972 \\
-\midrule
+\newpage
 \multirow{8}{*}{KK}
   & DAC & 1024 & 9 & 86 & 2.168 \\
   & DistilCodec & 32768 & 1 & 93 & 2.264 \\
@@ -960,7 +960,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.133 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.302 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.085 \\
-\newpage
+\midrule
 \multirow{8}{*}{KMR}
   & DAC & 1024 & 9 & 86 & 2.153 \\
   & DistilCodec & 32768 & 1 & 93 & 2.259 \\
@@ -1008,7 +1008,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.081 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.192 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.856 \\
-\midrule
+\newpage
 \multirow{8}{*}{LIJ}
   & DAC & 1024 & 9 & 86 & 2.483 \\
   & DistilCodec & 32768 & 1 & 93 & 2.578 \\
@@ -1020,7 +1020,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.474 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.605 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.345 \\
-\newpage
+\midrule
 \multirow{8}{*}{LO}
   & DAC & 1024 & 9 & 86 & 2.366 \\
   & DistilCodec & 32768 & 1 & 93 & 2.379 \\
@@ -1068,7 +1068,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.447 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.56 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.269 \\
-\midrule
+\newpage
 \multirow{8}{*}{MDF}
   & DAC & 1024 & 9 & 86 & 2.246 \\
   & DistilCodec & 32768 & 1 & 93 & 2.264 \\
@@ -1080,7 +1080,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.329 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.405 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.229 \\
-\newpage
+\midrule
 \multirow{8}{*}{MHR}
   & DAC & 1024 & 9 & 86 & 2.297 \\
   & DistilCodec & 32768 & 1 & 93 & 2.382 \\
@@ -1128,7 +1128,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.018 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.264 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.161 \\
-\midrule
+\newpage
 \multirow{8}{*}{MR}
   & DAC & 1024 & 9 & 86 & 2.1 \\
   & DistilCodec & 32768 & 1 & 93 & 2.121 \\
@@ -1140,7 +1140,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.285 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.364 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.908 \\
-\newpage
+\midrule
 \multirow{8}{*}{MRJ}
   & DAC & 1024 & 9 & 86 & 2.179 \\
   & DistilCodec & 32768 & 1 & 93 & 2.252 \\
@@ -1188,7 +1188,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.121 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.372 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.185 \\
-\midrule
+\newpage
 \multirow{8}{*}{NE-NP}
   & DAC & 1024 & 9 & 86 & 2.422 \\
   & DistilCodec & 32768 & 1 & 93 & 2.45 \\
@@ -1200,7 +1200,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.365 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.554 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.279 \\
-\newpage
+\midrule
 \multirow{8}{*}{NHI}
   & DAC & 1024 & 9 & 86 & 2.517 \\
   & DistilCodec & 32768 & 1 & 93 & 2.409 \\
@@ -1248,7 +1248,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.398 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.517 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.208 \\
-\midrule
+\newpage
 \multirow{8}{*}{OR}
   & DAC & 1024 & 9 & 86 & 2.443 \\
   & DistilCodec & 32768 & 1 & 93 & 2.599 \\
@@ -1260,7 +1260,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.391 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.624 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.194 \\
-\newpage
+\midrule
 \multirow{8}{*}{OS}
   & DAC & 1024 & 9 & 86 & 2.145 \\
   & DistilCodec & 32768 & 1 & 93 & 2.104 \\
@@ -1308,7 +1308,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.026 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.177 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.932 \\
-\midrule
+\newpage
 \multirow{8}{*}{PT}
   & DAC & 1024 & 9 & 86 & 2.231 \\
   & DistilCodec & 32768 & 1 & 93 & 2.308 \\
@@ -1320,7 +1320,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.221 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.386 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.136 \\
-\newpage
+\midrule
 \multirow{8}{*}{RM-SURSILV}
   & DAC & 1024 & 9 & 86 & 2.286 \\
   & DistilCodec & 32768 & 1 & 93 & 2.517 \\
@@ -1368,7 +1368,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.275 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.368 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.134 \\
-\midrule
+\newpage
 \multirow{8}{*}{RW}
   & DAC & 1024 & 9 & 86 & 1.774 \\
   & DistilCodec & 32768 & 1 & 93 & 1.759 \\
@@ -1380,7 +1380,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 1.87 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 1.954 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.645 \\
-\newpage
+\midrule
 \multirow{8}{*}{SAH}
   & DAC & 1024 & 9 & 86 & 2.235 \\
   & DistilCodec & 32768 & 1 & 93 & 2.426 \\
@@ -1428,7 +1428,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.198 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.453 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.143 \\
-\midrule
+\newpage
 \multirow{8}{*}{SKR}
   & DAC & 1024 & 9 & 86 & 2.079 \\
   & DistilCodec & 32768 & 1 & 93 & 2.111 \\
@@ -1440,7 +1440,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.127 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.3 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.965 \\
-\newpage
+\midrule
 \multirow{8}{*}{SL}
   & DAC & 1024 & 9 & 86 & 2.436 \\
   & DistilCodec & 32768 & 1 & 93 & 2.594 \\
@@ -1488,7 +1488,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.308 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.463 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.202 \\
-\midrule
+\newpage
 \multirow{8}{*}{SW}
   & DAC & 1024 & 9 & 86 & 1.936 \\
   & DistilCodec & 32768 & 1 & 93 & 1.929 \\
@@ -1500,7 +1500,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.029 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.181 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.777 \\
-\newpage
+\midrule
 \multirow{8}{*}{TA}
   & DAC & 1024 & 9 & 86 & 2.222 \\
   & DistilCodec & 32768 & 1 & 93 & 2.357 \\
@@ -1548,7 +1548,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.338 \\
   & \textbf{Ours (25\,Hz, 24\,kHz)} & \textbf{65536} & \textbf{1} & \textbf{25} & \textbf{2.525} \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.216 \\
-\midrule
+\newpage
 \multirow{8}{*}{TIG}
   & DAC & 1024 & 9 & 86 & 2.467 \\
   & DistilCodec & 32768 & 1 & 93 & 2.619 \\
@@ -1560,7 +1560,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.308 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.573 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.423 \\
-\newpage
+\midrule
 \multirow{8}{*}{TK}
   & DAC & 1024 & 9 & 86 & 2.164 \\
   & DistilCodec & 32768 & 1 & 93 & 2.266 \\
@@ -1608,7 +1608,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.204 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.327 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 1.924 \\
-\midrule
+\newpage
 \multirow{8}{*}{TW}
   & DAC & 1024 & 9 & 86 & 2.169 \\
   & DistilCodec & 32768 & 1 & 93 & 2.486 \\
@@ -1620,7 +1620,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.193 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.514 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.359 \\
-\newpage
+\midrule
 \multirow{8}{*}{UG}
   & DAC & 1024 & 9 & 86 & 2.348 \\
   & DistilCodec & 32768 & 1 & 93 & 2.502 \\
@@ -1668,7 +1668,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.16 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.312 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.037 \\
-\midrule
+\newpage
 \multirow{8}{*}{VI}
   & DAC & 1024 & 9 & 86 & 2.194 \\
   & DistilCodec & 32768 & 1 & 93 & 2.25 \\
@@ -1680,7 +1680,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.087 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.252 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.064 \\
-\newpage
+\midrule
 \multirow{8}{*}{VOT}
   & DAC & 1024 & 9 & 86 & 2.001 \\
   & DistilCodec & 32768 & 1 & 93 & 2.409 \\
@@ -1728,7 +1728,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.474 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.59 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.434 \\
-\midrule
+\newpage
 \multirow{8}{*}{ZGH}
   & DAC & 1024 & 9 & 86 & 2.337 \\
   & DistilCodec & 32768 & 1 & 93 & 2.517 \\
@@ -1740,7 +1740,7 @@ In this section, we provide the full UTMOSv2 evaluation results across 116 langu
   & UniCodec & 16384 & 1 & 75 & 2.223 \\
   & Ours (25\,Hz, 24\,kHz) & 65536 & 1 & 25 & 2.607 \\
   & X-Codec-2.0 (baseline) & 65536 & 1 & 50 & 2.176 \\
-\newpage
+\midrule
 \multirow{8}{*}{ZH-CN}
   & DAC & 1024 & 9 & 86 & 2.181 \\
   & DistilCodec & 32768 & 1 & 93 & 2.252 \\
